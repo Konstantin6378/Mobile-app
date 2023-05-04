@@ -1,6 +1,8 @@
 import { FC, useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
-import { Text, View } from 'react-native'
+import { Pressable, Text, View } from 'react-native'
+
+import { Loader } from '@/components/ui'
 
 import { IAuthFormData } from '@/shared/types/auth.interface'
 
@@ -21,7 +23,17 @@ const Auth: FC = () => {
 					{isReg ? 'Register' : 'Login'}
 				</Text>
 
-				{isLoading}
+				{isLoading ? (
+					<Loader />
+				) : (
+					<>
+						<Pressable onPress={() => setIsReg(!isReg)}>
+							<Text className='text-white opacity-30 text-right text-base mt-3'>
+								{isReg ? 'Login' : 'Register'}
+							</Text>
+						</Pressable>
+					</>
+				)}
 			</View>
 		</View>
 	)
