@@ -12,9 +12,17 @@ const Auth: FC = () => {
 	})
 
 	const onSubmit: SubmitHandler<IAuthFormData> = ({ email, password }) => {}
+
+	const isLoading = false
 	return (
-		<View>
-			<Text>Auth</Text>
+		<View className='mx-2 items-center justify-center'>
+			<View className='w-9/12'>
+				<Text className='text-center text-white text-4xl font-bold mb-2.5'>
+					{isReg ? 'Register' : 'Login'}
+				</Text>
+
+				{isLoading}
+			</View>
 		</View>
 	)
 }
