@@ -1,3 +1,4 @@
+import { Feather } from '@expo/vector-icons'
 import cn from 'clsx'
 import { LinearGradient } from 'expo-linear-gradient'
 import { FC, PropsWithChildren } from 'react'
@@ -12,14 +13,21 @@ const Button: FC<PropsWithChildren<IButton>> = ({
 	...rest
 }) => {
 	return (
-		<Pressable className={cn('self-center mt-3.5', className)}>
+		<Pressable className={cn('self-center mt-3.5', className)} {...rest}>
 			<LinearGradient
 				className={cn('w-full py-3 px-8 rounded-2xl items-center', {
 					'flex-row': !!icon
 				})}
 				colors={['#DC3F41', '#A6282B']}
 			>
-				<Text>{children}</Text>
+				{icon && <Feather name={icon} size={18} color='white' />}
+				<Text
+					className={cn('text-white text-center font-medium text-lg', {
+						'ml-2': !!icon
+					})}
+				>
+					{children}
+				</Text>
 			</LinearGradient>
 		</Pressable>
 	)
