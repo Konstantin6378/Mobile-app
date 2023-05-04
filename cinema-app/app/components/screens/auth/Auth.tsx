@@ -6,6 +6,8 @@ import { Button, Loader } from '@/components/ui'
 
 import { IAuthFormData } from '@/shared/types/auth.interface'
 
+import AuthFields from './AuthFields'
+
 const Auth: FC = () => {
 	const [isReg, setIsReg] = useState(false)
 
@@ -27,7 +29,7 @@ const Auth: FC = () => {
 					<Loader />
 				) : (
 					<>
-						{/* Fields */}
+						<AuthFields control={control} isPassRequired />
 						<Button onPress={handleSubmit(onSubmit)} icon={'film'}>
 							Go to watch
 						</Button>
