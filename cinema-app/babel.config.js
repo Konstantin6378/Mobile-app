@@ -1,16 +1,19 @@
 module.exports = function (api) {
-  api.cache(true);
+  api.cache(true)
 
   return {
     presets: ['babel-preset-expo'],
-    plugin: [
+    plugins: [
       [
-        'babel-plugin-root-import', {
+        'babel-plugin-root-import',
+        {
           rootPathSuffix: 'app/',
           rootPathPrefix: '@/'
         }
       ],
-      ['nativewind/babel']
+      ['nativewind/babel'],
+      ['inline-dotenv'],
+      ['react-native-reanimated/plugin']
     ]
-  };
-};
+  }
+}
