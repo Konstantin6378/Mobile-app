@@ -14,7 +14,20 @@ export const AuthContext = createContext({} as IContext)
 const AuthProvider: FC<PropsWithChildren<unknown>> = ({ children }) => {
 	const [user, setUser] = useState<TypeUserState>(null)
 
-	useEffect(() => {}, [])
+	useEffect(() => {
+		let mounted = true
+
+		const checkAccessToken = async () => {
+			try {
+			} catch (error) {
+			} finally {
+			}
+		}
+
+		return () => {
+			mounted = false
+		}
+	}, [])
 
 	return <View>{children}</View>
 }
