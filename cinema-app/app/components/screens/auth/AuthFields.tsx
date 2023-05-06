@@ -1,8 +1,7 @@
 import { FC } from 'react'
 import { Control } from 'react-hook-form'
-import { Text, View } from 'react-native'
 
-import Field from '@/components/ui/form-elements/field/Field'
+import { Field } from '@/components/ui'
 
 import { validEmail } from '@/shared/regex'
 import { IAuthFormData } from '@/shared/types/auth.interface'

@@ -1,7 +1,6 @@
 import { FC, PropsWithChildren } from 'react'
 import {
 	Keyboard,
-	Text,
 	TouchableWithoutFeedback,
 	View,
 	ViewProps
