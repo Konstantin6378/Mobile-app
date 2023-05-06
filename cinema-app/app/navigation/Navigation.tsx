@@ -8,6 +8,7 @@ const Navigation: FC = () => {
 		<NavigationContainer>
 			<PrivateNavigator />
 		</NavigationContainer>
+		// TODO: Bottom menu
 	)
 }
 export default Navigation
