@@ -7,7 +7,7 @@ import Screen404 from '@/components/screens/sestym/Screen404'
 import { useAuth } from '@/hooks/useAuth'
 
 import { TypeRootStackParamList } from './navigation.types'
-import { userRoutes } from './user.routes'
+import { routes, userRoutes } from './user.routes'
 
 const Stack = createNativeStackNavigator<TypeRootStackParamList>()
 
@@ -23,7 +23,7 @@ const PrivateNavigator: FC = () => {
 			}}
 		>
 			{user ? (
-				userRoutes.map(route =>
+				routes.map(route =>
 					user.isAdmin || !route.isAdmin ? (
 						<Stack.Screen key={route.name} {...route} />
 					) : (

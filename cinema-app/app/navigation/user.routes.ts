@@ -12,6 +12,7 @@ export const userRoutes: IRoute[] = [
 	{
 		name: 'Auth',
 		component: Auth
-	},
-	...adminRoutes
+	}
 ]
+
+export const routes = [...userRoutes, ...adminRoutes]
