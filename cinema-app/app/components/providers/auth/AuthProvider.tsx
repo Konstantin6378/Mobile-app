@@ -1,3 +1,4 @@
+import * as SplashScreen from 'expo-splash-screen'
 import {
 	FC,
 	PropsWithChildren,
@@ -11,6 +12,8 @@ import { IContext, TypeUserState } from './auth-provider.interface'
 
 export const AuthContext = createContext({} as IContext)
 
+SplashScreen.preventAutoHideAsync()
+
 const AuthProvider: FC<PropsWithChildren<unknown>> = ({ children }) => {
 	const [user, setUser] = useState<TypeUserState>(null)
 
@@ -21,14 +24,21 @@ const AuthProvider: FC<PropsWithChildren<unknown>> = ({ children }) => {
 			try {
 			} catch (error) {
 			} finally {
+				await SplashScreen.hideAsync()
 			}
 		}
+
+		checkAccessToken()
 
 		return () => {
 			mounted = false
 		}
 	}, [])
 
-	return <View>{children}</View>
+	return (
+		<AuthContext.Provider value={{ user, setUser }}>
+			{children}
+		</AuthContext.Provider>
+	)
 }
 export default AuthProvider
