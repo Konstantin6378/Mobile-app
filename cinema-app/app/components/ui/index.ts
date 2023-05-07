@@ -6,6 +6,8 @@ export { default as DismissKeyboard } from './form-elements/field/DismissKeyboar
 export { default as Field } from './form-elements/field/Field'
 
 export { default as Auth } from '../screens/auth/Auth'
+// export { default as AuthFields } from '../screens/auth/AuthFields'
+
 export { default as Favorites } from '../screens/favorites/Favorites'
 export { default as Home } from '../screens/home/Home'
 export { default as Profile } from '../screens/profile/Profile'
