@@ -9,7 +9,7 @@ import { TypeRootStackParamList } from '@/navigation/navigation.types'
 
 interface IMenuItemProps {
 	item: IMenuItem
-	nav: (screenName: keyof TypeRootStackParamList) => void
+	nav: 
 	currentRoute?: string
 }
 
