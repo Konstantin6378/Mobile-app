@@ -4,12 +4,12 @@ import { Pressable, Text, View } from 'react-native'
 
 import { getColor } from '@/config/colors.config'
 
-import { IMenuItem } from './menu.interface'
+import { IMenuItem, TypeNavigate } from './menu.interface'
 import { TypeRootStackParamList } from '@/navigation/navigation.types'
 
 interface IMenuItemProps {
 	item: IMenuItem
-	nav: 
+	nav: TypeNavigate
 	currentRoute?: string
 }
 
