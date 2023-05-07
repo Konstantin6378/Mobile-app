@@ -1,7 +1,9 @@
 import { FC } from 'react'
-import { Text, View } from 'react-native'
+import { View } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
+import MenuItem from './MenuItem'
+import { menuItems } from './menu.data'
 import { TypeNavigate } from './menu.interface'
 
 interface IBottomMenu {
@@ -9,7 +11,7 @@ interface IBottomMenu {
 	currentRoute?: string
 }
 
-const BottomMenu: FC<IBottomMenu> = ({ nav, currentRoute }) => {
+const BottomMenu: FC<IBottomMenu> = props => {
 	const { bottom } = useSafeAreaInsets()
 
 	return (
@@ -17,7 +19,9 @@ const BottomMenu: FC<IBottomMenu> = ({ nav, currentRoute }) => {
 			className='pt-5 px-2 flex-row justify-between items-center w-full border-t border-t-solid border-t-[#929292] bg-[#090909]'
 			style={{ paddingBottom: bottom + 5 }}
 		>
-			<Text>BottomMenu</Text>
+			{menuItems.map(item => (
+				<MenuItem key={item.path} item={item} {...props} />
+			))}
 		</View>
 	)
 }
