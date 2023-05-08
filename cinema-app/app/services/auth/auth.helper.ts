@@ -13,11 +13,11 @@ export const getAccessToken = async () => {
 	return accessToken || null
 }
 
-export const saveTokensStorages = async (data: ITokens) => {
+export const saveTokensStorage = async (data: ITokens) => {
 	await setItemAsync(EnumSecureStore.ACCESS_TOKEN, data.accessToken)
 	await setItemAsync(EnumSecureStore.REFRESH_TOKEN, data.refreshToken)
 }
-export const deleteTokensStorages = async (data: ITokens) => {
+export const deleteTokensStorage = async () => {
 	await deleteItemAsync(EnumSecureStore.ACCESS_TOKEN)
 	await deleteItemAsync(EnumSecureStore.REFRESH_TOKEN)
 }
@@ -33,7 +33,7 @@ export const getUserFromStorage = async () => {
 }
 
 export const saveToStorage = async (data: IAuthResponse) => {
-	await saveTokensStorages(data)
+	await saveTokensStorage(data)
 	try {
 		await AsyncStorage.setItem(EnumAsyncStorage.USER, JSON.stringify(data.user))
 	} catch (error) {}
