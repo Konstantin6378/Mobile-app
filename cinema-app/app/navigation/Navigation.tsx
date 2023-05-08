@@ -4,6 +4,7 @@ import {
 } from '@react-navigation/native'
 import { FC, useEffect, useState } from 'react'
 
+import { useCheckAuth } from '@/components/providers/auth/useCheckAuth'
 import { BottomMenu } from '@/components/ui'
 
 import { useAuth } from '@/hooks/useAuth'
@@ -28,6 +29,8 @@ const Navigation: FC = () => {
 			navRef.removeListener('state', listener)
 		}
 	}, [])
+
+	useCheckAuth(currentRoute)
 
 	return (
 		<>
