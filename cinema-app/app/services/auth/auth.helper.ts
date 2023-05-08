@@ -4,6 +4,7 @@ import { deleteItemAsync, getItemAsync, setItemAsync } from 'expo-secure-store'
 import {
 	EnumAsyncStorage,
 	EnumSecureStore,
+	IAuthResponse,
 	ITokens
 } from '@/shared/types/auth.interface'
 
@@ -29,4 +30,11 @@ export const getUserFromStorage = async () => {
 	} catch (error) {
 		return null
 	}
+}
+
+export const saveToStorage = async (data: IAuthResponse) => {
+	await saveTokensStorages(data)
+	try {
+		await AsyncStorage.setItem(EnumAsyncStorage.USER, JSON.stringify(data.user))
+	} catch (error) {}
 }
