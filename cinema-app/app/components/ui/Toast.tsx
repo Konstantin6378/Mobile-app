@@ -1,6 +1,5 @@
 import { FC } from 'react'
-import { Text, View } from 'react-native'
-import { BaseToast, default as RnToast } from 'react-native-toast-message'
+import RnToast, { BaseToast } from 'react-native-toast-message'
 
 const options = (primaryColor: string) => ({
 	style: { backgroundColor: '#080808', borderLeftColor: primaryColor },
