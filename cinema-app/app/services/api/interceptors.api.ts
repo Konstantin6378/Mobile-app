@@ -45,3 +45,5 @@ instance.interceptors.request.use(
 		throw error
 	}
 )
+
+export default instance
