@@ -1,5 +1,5 @@
 import AsyncStorage from '@react-native-async-storage/async-storage'
-import { deleteItemAsync, getItemAsync } from 'expo-secure-store'
+import { deleteItemAsync, getItemAsync, setItemAsync } from 'expo-secure-store'
 
 import {
 	EnumAsyncStorage,
@@ -12,6 +12,10 @@ export const getAccessToken = async () => {
 	return accessToken || null
 }
 
+export const saveTokensStorages = async (data: ITokens) => {
+	await setItemAsync(EnumSecureStore.ACCESS_TOKEN, data.accessToken)
+	await setItemAsync(EnumSecureStore.REFRESH_TOKEN, data.refreshToken)
+}
 export const deleteTokensStorages = async (data: ITokens) => {
 	await deleteItemAsync(EnumSecureStore.ACCESS_TOKEN)
 	await deleteItemAsync(EnumSecureStore.REFRESH_TOKEN)
