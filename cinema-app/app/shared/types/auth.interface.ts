@@ -7,6 +7,10 @@ export enum EnumSecureStore {
 	REFRESH_TOKEN = 'refreshToken'
 }
 
+export enum EnumAsyncStorage {
+	USER = 'user'
+}
+
 export interface ITokens {
 	accessToken: string
 	refreshToken: string
