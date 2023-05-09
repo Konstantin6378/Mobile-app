@@ -1,3 +1,4 @@
+import { IAuthFormData } from '@/shared/types/auth.interface'
 import { IUser } from '@/shared/types/user.interface'
 
 import { getUsersUrl } from '@/config/api.config'
@@ -32,6 +33,27 @@ export const UserService = {
 		return request<IUser>({
 			url: getUsersUrl(`/${_id}`),
 			method: 'GET'
+		})
+	},
+	async updateProfile(data: IAuthFormData) {
+		return request<IUser>({
+			url: getUsersUrl(`/profile`),
+			method: 'PUT',
+			data
+		})
+	},
+	async deleteUser(_id: string) {
+		return request<string>({
+			url: getUsersUrl(`/${_id}`),
+			method: 'DELETE'
+		})
+	},
+	async update(_id: string, data: IAuthFormData) {
+		return request<string>({
+			url: getUsersUrl(`/${_id}`),
+
+			method: 'PUT',
+			data
 		})
 	}
 }
