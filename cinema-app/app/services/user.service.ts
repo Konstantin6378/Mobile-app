@@ -18,7 +18,7 @@ export const UserService = {
 		})
 	},
 	async getProfile() {
-		return request<IUser[]>({
+		return request<IUser>({
 			url: getUsersUrl('/profile'),
 			method: 'GET'
 		})
