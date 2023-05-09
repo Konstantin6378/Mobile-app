@@ -1,7 +1,7 @@
 import { AntDesign } from '@expo/vector-icons'
 import { FC } from 'react'
 import { useForm } from 'react-hook-form'
-import { Pressable, Text, View } from 'react-native'
+import { Image, Pressable, Text, View } from 'react-native'
 
 import { Button, Heading, Loader } from '@/components/ui'
 
@@ -28,7 +28,11 @@ const Profile: FC = () => {
 		<View className='mt-20 px-3'>
 			<Heading title={'Profile'} />
 			{/* Picture user */}
-
+			<Image
+				source={require('@/assets/avatar-guest.jpg')}
+				style={{ width: 200, height: 200 }}
+				className='self-center mt-3 rounded-2xl'
+			/>
 			{isLoading ? (
 				<Loader />
 			) : (
