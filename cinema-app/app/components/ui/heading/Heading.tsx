@@ -10,7 +10,10 @@ interface IHeading {
 const Heading: FC<IHeading> = ({ title, className = '' }) => {
 	return (
 		<Text
-			className={cn(`text-white text-opacity-80 font-semibold`, className)}
+			className={cn(
+				`text-white text-opacity-80 font-semibold text-3xl`,
+				className
+			)}
 			numberOfLines={1}
 		>
 			{title}
