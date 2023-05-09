@@ -1,5 +1,5 @@
 import { useMutation, useQuery } from '@tanstack/react-query'
-import { UseFormSetValue } from 'react-hook-form'
+import { SubmitHandler, UseFormSetValue } from 'react-hook-form'
 import { Toast } from 'react-native-toast-message/lib/src/Toast'
 
 import { IAuthFormData } from '@/shared/types/auth.interface'
@@ -26,4 +26,10 @@ export const useProfile = (setValue: UseFormSetValue<IAuthFormData>) => {
 			}
 		}
 	)
+
+	const onSubmit: SubmitHandler<IAuthFormData> = async data => {
+		await mutateAsync(data)
+	}
+
+	return { onSubmit, isLoading }
 }
