@@ -1,2 +1,1 @@
-export const user.service = {
-}
+export const UserService = {}
