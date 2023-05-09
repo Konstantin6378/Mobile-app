@@ -2,6 +2,7 @@ export { default as Loader } from './Loader'
 export { default as Button } from './button/Button'
 export { default as BottomMenu } from '../ui/layout/bottom-menu/BottomMenu'
 export { default as Toast } from '../ui/Toast'
+export { default as Heading } from '../ui/heading/Heading'
 
 export { default as DismissKeyboard } from './form-elements/field/DismissKeyboard'
 export { default as Field } from './form-elements/field/Field'
