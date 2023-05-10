@@ -1,7 +1,18 @@
 import { FC, PropsWithChildren } from 'react'
-import { View } from 'react-native'
+import { StyleProp, View, ViewStyle } from 'react-native'
 
-const Layout: FC<PropsWithChildren<unknown>> = ({ children }) => {
+interface ILayout {
+	className?: string
+	style?: StyleProp<ViewStyle>
+	isHasPadding?: boolean
+}
+
+const Layout: FC<PropsWithChildren<ILayout>> = ({
+	children,
+	className,
+	style,
+	isHasPadding
+}) => {
 	return <View>{children}</View>
 }
 export default Layout
