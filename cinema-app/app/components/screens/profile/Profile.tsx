@@ -28,11 +28,12 @@ const Profile: FC = () => {
 		<View className='mt-20 px-3'>
 			<Heading title={'Profile'} />
 			{/* Picture user */}
-			<Image
-				source={require('@/assets/avatar-guest.jpg')}
-				style={{ width: 200, height: 200 }}
-				className='self-center mt-3 rounded-2xl'
-			/>
+			<View className='my-6 items-center justify-center'>
+				<Image
+					source={require('@/assets/avatar-guest.jpg')}
+					className='w-40 h-40 rounded-2xl'
+				/>
+			</View>
 			{isLoading ? (
 				<Loader />
 			) : (
