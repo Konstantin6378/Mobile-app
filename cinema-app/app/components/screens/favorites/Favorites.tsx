@@ -1,15 +1,16 @@
 import { FC } from 'react'
 import { Text, View } from 'react-native'
 
+import { Layout } from '@/components/ui'
 import Heading from '@/components/ui/heading/Heading'
 
 const Favorites: FC = () => {
 	return (
-		<View className='mt-20 px-3'>
+		<Layout isHasPadding>
 			<Heading title={'Favorite'} />
 
 			<Text>Favorites</Text>
-		</View>
+		</Layout>
 	)
 }
 export default Favorites
