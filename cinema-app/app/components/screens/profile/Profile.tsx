@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form'
 import { Image, Pressable, Text, View } from 'react-native'
 import Animated from 'react-native-reanimated'
 
-import { Button, Heading, Loader } from '@/components/ui'
+import { Button, Heading, Layout, Loader } from '@/components/ui'
 
 import { useAuth } from '@/hooks/useAuth'
 import { useScaleOnMount } from '@/hooks/useScaleOnMount'
@@ -29,7 +29,7 @@ const Profile: FC = () => {
 	const { styleAnimation } = useScaleOnMount()
 
 	return (
-		<View className='mt-20 px-3'>
+		<Layout isHasPadding>
 			<Heading title={'Profile'} />
 			{/* Picture user */}
 			<Animated.View
@@ -58,7 +58,7 @@ const Profile: FC = () => {
 				<AntDesign name={'logout'} size={18} color='white' />
 				<Text className='text-white text-lg ml-2'>Logout</Text>
 			</Pressable>
-		</View>
+		</Layout>
 	)
 }
 export default Profile
