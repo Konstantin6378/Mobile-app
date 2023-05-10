@@ -1,14 +1,14 @@
 import { FC } from 'react'
 import { Pressable, Text, View } from 'react-native'
 
-import { Heading } from '@/components/ui'
+import { Heading, Layout } from '@/components/ui'
 
 import { useTypedNavigation } from '@/hooks/useTypedNavigation'
 
 const Home: FC = () => {
 	const { navigate } = useTypedNavigation()
 	return (
-		<View className='mt-20 px-3'>
+		<Layout isHasPadding>
 			<Heading title={'Home'} />
 
 			<Pressable
@@ -19,7 +19,7 @@ const Home: FC = () => {
 					Go to login
 				</Text>
 			</Pressable>
-		</View>
+		</Layout>
 	)
 }
 export default Home
