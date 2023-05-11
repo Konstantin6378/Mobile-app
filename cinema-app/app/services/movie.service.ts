@@ -73,5 +73,14 @@ export const MovieService = {
 			method: 'PUT',
 			data
 		})
+	},
+	async updateCountOpened(slug: string) {
+		return request<string>({
+			url: getMoviesUrl('/update-count-opened'),
+			method: 'PUT',
+			data: {
+				slug
+			}
+		})
 	}
 }
