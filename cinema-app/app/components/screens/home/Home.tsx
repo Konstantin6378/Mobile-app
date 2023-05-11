@@ -8,9 +8,8 @@ import { useTypedNavigation } from '@/hooks/useTypedNavigation'
 const Home: FC = () => {
 	const { navigate } = useTypedNavigation()
 	return (
-		<Layout isHasPadding>
+		<Layout>
 			<Heading title={'Home'} />
-
 			<Pressable
 				onPress={() => navigate('Auth')}
 				className='opacity-40 items-center flex-row justify-end'
