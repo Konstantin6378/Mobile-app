@@ -1,11 +1,13 @@
 import { FC } from 'react'
 import { Text, View } from 'react-native'
 
-const Carusel: FC = () => {
+import { IMovie } from '@/shared/types/movie.interface'
+
+const Carousel: FC<{ movies: IMovie[] }> = ({ movies }) => {
 	return (
 		<View>
-			<Text>Carusel</Text>
+			<Text>Carousel</Text>
 		</View>
 	)
 }
-export default Carusel
+export default Carousel
