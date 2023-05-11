@@ -16,3 +16,5 @@ export { default as Home } from '../screens/home/Home'
 export { default as Profile } from '../screens/profile/Profile'
 export { default as Search } from '../screens/search/Search'
 export { default as Trending } from '../screens/trending/Trending'
+
+export { default as Rating } from '../ui/movie/movie-item/Rating'
