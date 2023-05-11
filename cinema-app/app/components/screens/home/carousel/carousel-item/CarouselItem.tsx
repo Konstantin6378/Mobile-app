@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { Pressable, Text, View } from 'react-native'
+import { Image, Pressable, Text, View } from 'react-native'
 
 import { useTypedNavigation } from '@/hooks/useTypedNavigation'
 
@@ -9,10 +9,18 @@ const CarouselItem: FC<{ movie: IMovie }> = ({ movie }) => {
 	const { navigate } = useTypedNavigation()
 
 	return (
-		<View>
-			<Pressable
-				onPress={() => navigate('Movie', { slug: movie.slug })}
-			></Pressable>
+		<View className='w-48'>
+			<Pressable onPress={() => navigate('Movie', { slug: movie.slug })}>
+				<View className='absolute z-1 right-2 top-2'></View>
+				<Image
+					style={{
+						height: 200,
+						resizeMode: 'cover',
+						borderWidth: 1,
+						borderColor: 'white'
+					}}
+				/>
+			</Pressable>
 		</View>
 	)
 }
