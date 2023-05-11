@@ -2,7 +2,7 @@ import { IAuthFormData } from '@/shared/types/auth.interface'
 
 import { getMoviesUrl } from '@/config/api.config'
 
-import { IMovie } from './../shared/types/movie.interface'
+import { IMovie, IMovieEditInput } from './../shared/types/movie.interface'
 import { request } from './api/request.api'
 
 export const MovieService = {
@@ -49,25 +49,24 @@ export const MovieService = {
 		})
 	},
 	async getById(_id: string) {
-		return request<IMovie>({
+		return request<IMovieEditInput>({
 			url: getMoviesUrl(`/${_id}`),
 			method: 'GET'
 		})
 	},
-	async updateProfile(data: IAuthFormData) {
-		return request<IMovie>({
-			url: getMoviesUrl(`/profile`),
-			method: 'PUT',
-			data
+	async create() {
+		return request<string>({
+			url: getMoviesUrl(``),
+			method: 'POST'
 		})
 	},
-	async deleteMovie(_id: string) {
+	async delete(_id: string) {
 		return request<string>({
 			url: getMoviesUrl(`/${_id}`),
 			method: 'DELETE'
 		})
 	},
-	async update(_id: string, data: IAuthFormData) {
+	async update(_id: string, data: IMovieEditInput) {
 		return request<string>({
 			url: getMoviesUrl(`/${_id}`),
 
