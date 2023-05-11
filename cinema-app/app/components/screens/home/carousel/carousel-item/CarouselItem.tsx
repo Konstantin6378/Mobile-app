@@ -5,6 +5,8 @@ import { useTypedNavigation } from '@/hooks/useTypedNavigation'
 
 import { IMovie } from '@/shared/types/movie.interface'
 
+import { getMediaSource } from '@/utils/getMediaSource'
+
 const CarouselItem: FC<{ movie: IMovie }> = ({ movie }) => {
 	const { navigate } = useTypedNavigation()
 
@@ -22,7 +24,7 @@ const CarouselItem: FC<{ movie: IMovie }> = ({ movie }) => {
 						borderColor: 'white'
 					}}
 					className='w-full rounded-xl mb-2.5'
-					source={''}
+					source={getMediaSource(movie.poster)}
 				/>
 			</Pressable>
 		</View>
