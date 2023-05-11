@@ -1,12 +1,16 @@
 import { FC } from 'react'
-import { Text, View } from 'react-native'
+import { Pressable, Text, View } from 'react-native'
+
+import { useTypedNavigation } from '@/hooks/useTypedNavigation'
 
 import { IMovie } from '@/shared/types/movie.interface'
 
 const CarouselItem: FC<{ movie: IMovie }> = () => {
+	const { navigate } = useTypedNavigation()
+
 	return (
 		<View>
-			<Text>CarouselItem</Text>
+			<Pressable onPress={() => navigate('Movie', {})}></Pressable>
 		</View>
 	)
 }
