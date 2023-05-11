@@ -1,3 +1,9 @@
+export interface IParameters {
+	year: number
+	duration: number
+	country: string
+}
+
 export interface IMovie {
 	_id: string
 	poster: string
