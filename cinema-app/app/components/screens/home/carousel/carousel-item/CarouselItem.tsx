@@ -11,7 +11,9 @@ const CarouselItem: FC<{ movie: IMovie }> = ({ movie }) => {
 	return (
 		<View className='w-48'>
 			<Pressable onPress={() => navigate('Movie', { slug: movie.slug })}>
-				<View className='absolute z-1 right-2 top-2'></View>
+				<View className='absolute z-1 right-2 top-2'>
+					{/* Favorite button */}
+				</View>
 				<Image
 					style={{
 						height: 300,
@@ -20,6 +22,7 @@ const CarouselItem: FC<{ movie: IMovie }> = ({ movie }) => {
 						borderColor: 'white'
 					}}
 					className='w-full rounded-xl mb-2.5'
+					source={''}
 				/>
 			</Pressable>
 		</View>
