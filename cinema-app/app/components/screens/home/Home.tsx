@@ -4,6 +4,7 @@ import { Layout, Loader } from '@/components/ui'
 
 import { useTypedNavigation } from '@/hooks/useTypedNavigation'
 
+import Carousel from './carousel/Carousel'
 import { useGetAllMovies } from './useGetAllMovies'
 
 const Home: FC = () => {
@@ -13,7 +14,7 @@ const Home: FC = () => {
 
 	return (
 		<Layout>
-			{isLoading ? <Loader /> : movies?.length && <Carusel movies={movies} />}
+			{isLoading ? <Loader /> : movies?.length && <Carousel movies={movies} />}
 		</Layout>
 	)
 }
