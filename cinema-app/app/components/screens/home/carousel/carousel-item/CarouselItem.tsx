@@ -5,12 +5,14 @@ import { useTypedNavigation } from '@/hooks/useTypedNavigation'
 
 import { IMovie } from '@/shared/types/movie.interface'
 
-const CarouselItem: FC<{ movie: IMovie }> = () => {
+const CarouselItem: FC<{ movie: IMovie }> = ({ movie }) => {
 	const { navigate } = useTypedNavigation()
 
 	return (
 		<View>
-			<Pressable onPress={() => navigate('Movie', {})}></Pressable>
+			<Pressable
+				onPress={() => navigate('Movie', { slug: movie.slug })}
+			></Pressable>
 		</View>
 	)
 }
