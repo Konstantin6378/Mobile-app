@@ -1,11 +1,11 @@
 import { FC } from 'react'
 import { Text, View } from 'react-native'
 
-const CaruselItem: FC = () => {
+const CarouselItem: FC = () => {
 	return (
 		<View>
-			<Text>CaruselItem</Text>
+			<Text>CarouselItem</Text>
 		</View>
 	)
 }
-export default CaruselItem
+export default CarouselItem
