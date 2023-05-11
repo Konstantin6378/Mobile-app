@@ -1,10 +1,27 @@
 import { FC } from 'react'
-import { Text, View } from 'react-native'
+import { Pressable, Text, View } from 'react-native'
 
-const GenreList: FC = () => {
+import { useTypedNavigation } from '@/hooks/useTypedNavigation'
+
+import { IGenre } from '@/shared/types/movie.interface'
+
+const GenreList: FC<{ genres: IGenre[] }> = ({ genres }) => {
+	const { navigate } = useTypedNavigation()
 	return (
-		<View>
-			<Text>GenreList</Text>
+		<View className='flex-row gap-3'>
+			{genres.map(genre => (
+				<Pressable
+					onPress={() =>
+						navigate('Genre', {
+							slug: genre.slug
+						})
+					}
+					key={genre._id}
+					className='rounded-2xl bg-gray py-1.5 px-3'
+				>
+					<Text className='text-white'>{genre.name}</Text>
+				</Pressable>
+			))}
 		</View>
 	)
 }
