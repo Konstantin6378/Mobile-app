@@ -1,6 +1,8 @@
 import { FC } from 'react'
 import { Image, Pressable, Text, View } from 'react-native'
 
+import { Rating } from '@/components/ui'
+
 import { useTypedNavigation } from '@/hooks/useTypedNavigation'
 
 import { IMovie } from '@/shared/types/movie.interface'
@@ -28,7 +30,7 @@ const CarouselItem: FC<{ movie: IMovie }> = ({ movie }) => {
 				/>
 			</Pressable>
 			<View className={'items-center'}>
-				{/* Rating */}
+				<Rating rating={movie.rating} />
 				<Pressable onPress={() => navigate('Movie', { slug: movie.slug })}>
 					<Text
 						className='text-white text-3xl font-semibold opacity-95 mb-2.5'
