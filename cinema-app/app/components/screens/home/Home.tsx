@@ -1,7 +1,6 @@
 import { FC } from 'react'
-import { Pressable, Text, View } from 'react-native'
 
-import { Heading, Layout, Loader } from '@/components/ui'
+import { Layout, Loader } from '@/components/ui'
 
 import { useTypedNavigation } from '@/hooks/useTypedNavigation'
 
