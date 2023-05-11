@@ -27,6 +27,17 @@ const CarouselItem: FC<{ movie: IMovie }> = ({ movie }) => {
 					source={getMediaSource(movie.poster)}
 				/>
 			</Pressable>
+			<View className={'items-center'}>
+				{/* Rating */}
+				<Pressable onPress={() => navigate('Movie', { slug: movie.slug })}>
+					<Text
+						className='text-white text-3xl font-semibold opacity-95 mb-2.5'
+						numberOfLines={1}
+					>
+						{movie.title}
+					</Text>
+				</Pressable>
+			</View>
 		</View>
 	)
 }
