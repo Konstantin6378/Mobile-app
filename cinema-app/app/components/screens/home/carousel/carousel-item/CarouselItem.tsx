@@ -1,7 +1,9 @@
 import { FC } from 'react'
 import { Text, View } from 'react-native'
 
-const CarouselItem: FC = () => {
+import { IMovie } from '@/shared/types/movie.interface'
+
+const CarouselItem: FC<{ movie: IMovie }> = () => {
 	return (
 		<View>
 			<Text>CarouselItem</Text>
