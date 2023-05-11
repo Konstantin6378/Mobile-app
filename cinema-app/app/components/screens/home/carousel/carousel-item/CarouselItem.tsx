@@ -14,11 +14,12 @@ const CarouselItem: FC<{ movie: IMovie }> = ({ movie }) => {
 				<View className='absolute z-1 right-2 top-2'></View>
 				<Image
 					style={{
-						height: 200,
+						height: 300,
 						resizeMode: 'cover',
 						borderWidth: 1,
 						borderColor: 'white'
 					}}
+					className='w-full rounded-xl mb-2.5'
 				/>
 			</Pressable>
 		</View>
