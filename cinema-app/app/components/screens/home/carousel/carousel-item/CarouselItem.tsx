@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import { Image, Pressable, Text, View } from 'react-native'
 
-import { Rating } from '@/components/ui'
+import { GenreList, Rating } from '@/components/ui'
 
 import { useTypedNavigation } from '@/hooks/useTypedNavigation'
 
@@ -39,7 +39,7 @@ const CarouselItem: FC<{ movie: IMovie }> = ({ movie }) => {
 						{movie.title}
 					</Text>
 				</Pressable>
-				{/* Genres */}
+				<GenreList genres={movie.genres} />
 			</View>
 		</View>
 	)
