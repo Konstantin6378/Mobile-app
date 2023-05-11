@@ -37,6 +37,7 @@ const CarouselItem: FC<{ movie: IMovie }> = ({ movie }) => {
 						{movie.title}
 					</Text>
 				</Pressable>
+				{/* Genres */}
 			</View>
 		</View>
 	)
