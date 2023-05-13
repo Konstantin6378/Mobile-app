@@ -23,6 +23,10 @@ const Carousel: FC<{ movies: IMovie[] }> = ({ movies }) => {
 				snapToInterval={ITEM_SIZE}
 				snapToAlignment='center'
 				decelerationRate={Platform.OS === 'ios' ? 0 : 0.98}
+				onScroll={Animated.event(
+					[{ nativeEvent: { contentOffset: { x: scrollX } } }],
+					{ useNativeDriver: true }
+				)}
 				renderItem={({ item: movie, index }) => (
 					<CarouselItem
 						movie={movie}
