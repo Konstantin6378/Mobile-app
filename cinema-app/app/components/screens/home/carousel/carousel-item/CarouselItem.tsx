@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { Image, Pressable, Text, View } from 'react-native'
+import { Animated, Image, Pressable, Text, View } from 'react-native'
 
 import { GenreList, Rating } from '@/components/ui'
 
@@ -9,8 +9,19 @@ import { IMovie } from '@/shared/types/movie.interface'
 
 import { getMediaSource } from '@/utils/getMediaSource'
 
-const CarouselItem: FC<{ movie: IMovie }> = ({ movie }) => {
+import { useItemAnimation } from './useItemAnimation'
+
+interface ICarouselItem {
+	index: number
+	scrollX: Animated.Value
+	movie: IMovie
+}
+
+const CarouselItem: FC<ICarouselItem> = ({ movie, index, scrollX }) => {
 	const { navigate } = useTypedNavigation()
+
+	const { inputRange, rotate, opacityElement, scale, opacity } =
+		useItemAnimation(index, scrollX)
 
 	return (
 		<View className='w-48'>
