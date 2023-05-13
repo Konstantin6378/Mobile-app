@@ -22,8 +22,10 @@ interface ICarouselItem {
 const CarouselItem: FC<ICarouselItem> = ({ movie, index, scrollX }) => {
 	const { navigate } = useTypedNavigation()
 
-	const { inputRange, rotate, opacityElement, scale, opacity } =
-		useItemAnimation(index, scrollX)
+	const { rotate, opacityElement, scale, opacity } = useItemAnimation(
+		index,
+		scrollX
+	)
 
 	return (
 		<View
@@ -57,7 +59,10 @@ const CarouselItem: FC<ICarouselItem> = ({ movie, index, scrollX }) => {
 						source={getMediaSource(movie.poster)}
 					/>
 				</Pressable>
-				<View className={'items-center'}>
+				<Animated.View
+					className={'items-center'}
+					style={{ opacity: opacityElement }}
+				>
 					<Rating rating={movie.rating} />
 					<Pressable onPress={() => navigate('Movie', { slug: movie.slug })}>
 						<Text
@@ -68,7 +73,7 @@ const CarouselItem: FC<ICarouselItem> = ({ movie, index, scrollX }) => {
 						</Text>
 					</Pressable>
 					<GenreList genres={movie.genres} />
-				</View>
+				</Animated.View>
 			</Animated.View>
 		</View>
 	)
