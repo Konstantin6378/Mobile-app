@@ -50,7 +50,7 @@ const CarouselItem: FC<ICarouselItem> = ({ movie, index, scrollX }) => {
 					</View>
 					<Image
 						style={{
-							height: 300,
+							height: ITEM_SIZE * 1.3,
 							resizeMode: 'cover',
 							borderWidth: 1,
 							borderColor: 'white'
