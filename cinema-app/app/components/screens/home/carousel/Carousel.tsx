@@ -25,7 +25,7 @@ const Carousel: FC<{ movies: IMovie[] }> = ({ movies }) => {
 				}}
 				scrollEventThrottle={16}
 				snapToInterval={ITEM_SIZE}
-				snapToAlignment='center'
+				snapToAlignment='start'
 				decelerationRate={Platform.OS === 'ios' ? 0 : 0.98}
 				onScroll={Animated.event(
 					[{ nativeEvent: { contentOffset: { x: scrollX } } }],
