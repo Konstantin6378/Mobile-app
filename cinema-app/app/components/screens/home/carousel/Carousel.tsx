@@ -10,7 +10,7 @@ const Carousel: FC<{ movies: IMovie[] }> = ({ movies }) => {
 	const scrollX = useRef(new Animated.Value(0)).current
 	return (
 		<View>
-			<FlatList
+			<Animated.FlatList
 				data={movies}
 				showsHorizontalScrollIndicator={false}
 				horizontal
