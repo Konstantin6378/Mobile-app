@@ -4,14 +4,18 @@ import { Animated, FlatList, Platform, View } from 'react-native'
 import { IMovie } from '@/shared/types/movie.interface'
 
 import CarouselItem from './carousel-item/CarouselItem'
-import { ITEM_SIZE } from './carousel.constants'
+import { EMPTY_ITEM_SIZE, ITEM_SIZE } from './carousel.constants'
 
 const Carousel: FC<{ movies: IMovie[] }> = ({ movies }) => {
 	const scrollX = useRef(new Animated.Value(0)).current
 	return (
 		<View>
 			<Animated.FlatList
-				data={movies}
+				data={[
+					{ _id: 'first' } as IMovie,
+					...movies,
+					{ _id: 'last' } as IMovie
+				]}
 				showsHorizontalScrollIndicator={false}
 				horizontal
 				bounces={false}
@@ -27,14 +31,22 @@ const Carousel: FC<{ movies: IMovie[] }> = ({ movies }) => {
 					[{ nativeEvent: { contentOffset: { x: scrollX } } }],
 					{ useNativeDriver: true }
 				)}
-				renderItem={({ item: movie, index }) => (
-					<CarouselItem
-						movie={movie}
-						key={movie._id}
-						index={index}
-						scrollX={scrollX}
-					/>
-				)}
+				renderItem={({ item: movie, index }) =>
+					movie?.slug ? (
+						<CarouselItem
+							movie={movie}
+							key={movie._id}
+							index={index}
+							scrollX={scrollX}
+						/>
+					) : (
+						<View
+							style={{
+								width: EMPTY_ITEM_SIZE
+							}}
+						/>
+					)
+				}
 			/>
 		</View>
 	)
