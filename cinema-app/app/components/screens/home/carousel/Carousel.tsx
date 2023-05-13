@@ -18,7 +18,6 @@ const Carousel: FC<{ movies: IMovie[] }> = ({ movies }) => {
 				]}
 				showsHorizontalScrollIndicator={false}
 				horizontal
-				bounces={false}
 				renderToHardwareTextureAndroid
 				contentContainerStyle={{
 					alignItems: 'center'
