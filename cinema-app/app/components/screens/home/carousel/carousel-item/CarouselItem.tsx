@@ -37,8 +37,12 @@ const CarouselItem: FC<ICarouselItem> = ({ movie, index, scrollX }) => {
 					transform: [{ rotate }, { scale }],
 					opacity
 				}}
+				className={'items-center'}
 			>
-				<Pressable onPress={() => navigate('Movie', { slug: movie.slug })}>
+				<Pressable
+					className='w-full relative'
+					onPress={() => navigate('Movie', { slug: movie.slug })}
+				>
 					<View className='absolute z-1 right-2 top-2'>
 						{/* Favorite button */}
 					</View>
