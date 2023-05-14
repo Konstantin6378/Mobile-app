@@ -1,7 +1,12 @@
 import { FC } from 'react'
 import { Text, View } from 'react-native'
 
-const FavoriteButton: FC = () => {
+interface IFavoriteButton {
+	movieId: string
+	isSmall?: boolean
+}
+
+const FavoriteButton: FC<IFavoriteButton> = ({ isSmall, movieId }) => {
 	return (
 		<View>
 			<Text>FavoriteButton</Text>
