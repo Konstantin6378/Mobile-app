@@ -30,6 +30,15 @@ export const UserService = {
 			method: 'GET'
 		})
 	},
+
+	async toggleFavorite(movieId: string) {
+		return request({
+			url: getUsersUrl('/profile/favorites'),
+			method: 'PUT',
+			data: { movieId }
+		})
+	},
+
 	async getById(_id: string) {
 		return request<IUser>({
 			url: getUsersUrl(`/${_id}`),
