@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import { Animated, Image, Pressable, Text, View } from 'react-native'
 
-import { GenreList, Rating } from '@/components/ui'
+import { FavoriteButton, GenreList, Rating } from '@/components/ui'
 
 import { useTypedNavigation } from '@/hooks/useTypedNavigation'
 
@@ -47,6 +47,7 @@ const CarouselItem: FC<ICarouselItem> = ({ movie, index, scrollX }) => {
 				>
 					<View className='absolute z-1 right-2 top-2'>
 						{/* Favorite button */}
+						<FavoriteButton movieId={movie._id} />
 					</View>
 					<Image
 						style={{
