@@ -16,13 +16,16 @@ interface IFavoriteButton {
 
 const FavoriteButton: FC<IFavoriteButton> = ({ isSmall, movieId }) => {
 	const { isSmashed, toggleFavorite } = useFavorite(movieId)
-	const { outlineStyle, fillStyle, liked } = useFavoriteAnimation()
+	const { outlineStyle, fillStyle, liked } = useFavoriteAnimation(isSmashed)
 
 	return (
 		<BlurButton
-			className={cn({ 'w-8 h-8 rounded-lg': isSmall })}
+			className={cn({
+				'w-8 h-8 rounded-lg': isSmall
+			})}
 			onPress={() => {
 				liked.value = withSpring(liked.value === 1 ? 0 : 1)
+				toggleFavorite()
 			}}
 		>
 			<Animated.View
