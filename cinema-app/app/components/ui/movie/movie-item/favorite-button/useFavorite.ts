@@ -1,6 +1,9 @@
+import { QueryClient, useMutation, useQueryClient } from '@tanstack/react-query'
 import { useEffect, useState } from 'react'
 
 import { useFavorites } from '@/components/screens/favorites/useFavorites'
+
+import { UserService } from '@/services/user.service'
 
 export const useFavorite = (movieId: string) => {
 	const [isSmashed, setIsSmashed] = useState(false)
@@ -14,4 +17,15 @@ export const useFavorite = (movieId: string) => {
 
 		if (isSmashed !== isHasMovie) setIsSmashed(isHasMovie)
 	}, [favoriteMovies, isSmashed, movieId])
+
+	const queryClient = useQueryClient()
+	const { mutate: toggleFavorite } = useMutation(
+		['update favorites'],
+		() => UserService.toggleFavorite(movieId),
+		{
+			onSuccess() {
+				let ignore = queryClient.invalidateQueries(['favorite movies'])
+			}
+		}
+	)
 }
