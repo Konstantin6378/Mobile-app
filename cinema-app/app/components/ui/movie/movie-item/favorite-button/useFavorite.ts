@@ -1,5 +1,17 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+
+import { useFavorites } from '@/components/screens/favorites/useFavorites'
 
 export const useFavorite = (movieId: string) => {
 	const [isSmashed, setIsSmashed] = useState(false)
+
+	const { favoriteMovies } = useFavorites()
+
+	useEffect(() => {
+		if (!favoriteMovies) return
+
+		const isHasMovie = favoriteMovies.some(f => f._id === movieId)
+
+		if (isSmashed !== isHasMovie) setIsSmashed(isHasMovie)
+	}, [favoriteMovies, isSmashed, movieId])
 }
