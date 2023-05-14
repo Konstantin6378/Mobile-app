@@ -9,7 +9,7 @@ import { IBlurButton } from './blur-button.interface'
 const BlurButton: FC<PropsWithChildren<IBlurButton>> = ({
 	children,
 	color = '#fff',
-	iconSize,
+	iconSize = 21,
 	icon,
 	className,
 	...rest
@@ -27,7 +27,7 @@ const BlurButton: FC<PropsWithChildren<IBlurButton>> = ({
 				{children ? (
 					children
 				) : (
-					<Feather icon={icon} size={iconSize || 21} color={color} />
+					<Feather icon={icon} size={iconSize} color={color} />
 				)}
 			</BlurView>
 		</Pressable>
