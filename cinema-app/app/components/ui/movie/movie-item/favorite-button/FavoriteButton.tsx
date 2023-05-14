@@ -1,8 +1,8 @@
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 import cn from 'clsx'
 import { FC } from 'react'
-import { Animated, StyleSheet, View } from 'react-native'
-import { withSpring } from 'react-native-reanimated'
+import { StyleSheet, View } from 'react-native'
+import Animated, { withSpring } from 'react-native-reanimated'
 
 import BlurButton from '@/components/ui/blur-button/BlurButton'
 
