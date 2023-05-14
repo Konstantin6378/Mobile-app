@@ -2,7 +2,7 @@ import { Feather } from '@expo/vector-icons'
 import cn from 'clsx'
 import { BlurView } from 'expo-blur'
 import { FC, PropsWithChildren } from 'react'
-import { Pressable, View } from 'react-native'
+import { Pressable } from 'react-native'
 
 import { IBlurButton } from './blur-button.interface'
 
