@@ -24,8 +24,13 @@ export const useFavorite = (movieId: string) => {
 		() => UserService.toggleFavorite(movieId),
 		{
 			onSuccess() {
-				let ignore = queryClient.invalidateQueries(['favorite movies'])
+				queryClient.invalidateQueries(['favorite movies'])
 			}
 		}
 	)
+
+	return {
+		toggleFavorite,
+		isSmashed
+	}
 }
