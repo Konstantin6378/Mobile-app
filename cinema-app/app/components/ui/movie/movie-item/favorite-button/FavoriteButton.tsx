@@ -1,3 +1,4 @@
+import { MaterialCommunityIcons } from '@expo/vector-icons'
 import cn from 'clsx'
 import { FC } from 'react'
 import { Text, View } from 'react-native'
@@ -12,7 +13,13 @@ interface IFavoriteButton {
 const FavoriteButton: FC<IFavoriteButton> = ({ isSmall, movieId }) => {
 	return (
 		<BlurButton className={cn({ 'w-8 h-8 rounded-lg': isSmall })}>
-			<Text>FavoriteButton</Text>
+			<View className='items-center justify-center'>
+				<MaterialCommunityIcons
+					name={'heart-outline'}
+					size={isSmall ? 19 : 22}
+					color={'white'}
+				/>
+			</View>
 		</BlurButton>
 	)
 }
