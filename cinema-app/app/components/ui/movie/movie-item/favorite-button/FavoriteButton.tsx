@@ -6,6 +6,7 @@ import Animated, { withSpring } from 'react-native-reanimated'
 
 import BlurButton from '@/components/ui/blur-button/BlurButton'
 
+import { useFavorite } from './useFavorite'
 import { useFavoriteAnimation } from './useFavoriteAnimation'
 
 interface IFavoriteButton {
@@ -14,7 +15,9 @@ interface IFavoriteButton {
 }
 
 const FavoriteButton: FC<IFavoriteButton> = ({ isSmall, movieId }) => {
+	const { isSmashed, toggleFavorite } = useFavorite(movieId)
 	const { outlineStyle, fillStyle, liked } = useFavoriteAnimation()
+
 	return (
 		<BlurButton
 			className={cn({ 'w-8 h-8 rounded-lg': isSmall })}
