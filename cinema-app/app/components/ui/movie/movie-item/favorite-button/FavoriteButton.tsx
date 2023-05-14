@@ -1,7 +1,8 @@
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 import cn from 'clsx'
 import { FC } from 'react'
-import { Text, View } from 'react-native'
+import { Animated, StyleSheet, View } from 'react-native'
+import { withSpring } from 'react-native-reanimated'
 
 import BlurButton from '@/components/ui/blur-button/BlurButton'
 
@@ -15,14 +16,22 @@ interface IFavoriteButton {
 const FavoriteButton: FC<IFavoriteButton> = ({ isSmall, movieId }) => {
 	const { outlineStyle, fillStyle, liked } = useFavoriteAnimation()
 	return (
-		<BlurButton className={cn({ 'w-8 h-8 rounded-lg': isSmall })}>
-			<View className='items-center justify-center'>
+		<BlurButton
+			className={cn({ 'w-8 h-8 rounded-lg': isSmall })}
+			onPress={() => {
+				liked.value = withSpring(liked.value === 1 ? 0 : 1)
+			}}
+		>
+			<Animated.View
+				style={[StyleSheet.absoluteFillObject, outlineStyle]}
+				className='items-center justify-center'
+			>
 				<MaterialCommunityIcons
 					name={'heart-outline'}
 					size={isSmall ? 19 : 22}
 					color={'white'}
 				/>
-			</View>
+			</Animated.View>
 			<View>
 				<MaterialCommunityIcons
 					name={'heart'}
