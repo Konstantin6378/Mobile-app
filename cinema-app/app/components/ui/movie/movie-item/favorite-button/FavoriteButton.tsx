@@ -23,7 +23,7 @@ const FavoriteButton: FC<IFavoriteButton> = ({ isSmall, movieId }) => {
 			}}
 		>
 			<Animated.View
-				style={[StyleSheet.absoluteFillObject, outlineStyle]}
+				style={[StyleSheet.absoluteFill, outlineStyle]}
 				className='items-center justify-center'
 			>
 				<MaterialCommunityIcons
