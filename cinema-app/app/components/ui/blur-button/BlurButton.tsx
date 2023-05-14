@@ -1,3 +1,4 @@
+import { Feather } from '@expo/vector-icons'
 import cn from 'clsx'
 import { BlurView } from 'expo-blur'
 import { FC, PropsWithChildren } from 'react'
@@ -23,7 +24,11 @@ const BlurButton: FC<PropsWithChildren<IBlurButton>> = ({
 					className
 				)}
 			>
-				{children}
+				{children ? (
+					children
+				) : (
+					<Feather icon={icon} size={iconSize || 21} color={color} />
+				)}
 			</BlurView>
 		</Pressable>
 	)
