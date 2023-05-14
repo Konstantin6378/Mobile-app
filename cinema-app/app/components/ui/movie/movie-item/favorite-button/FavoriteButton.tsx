@@ -32,13 +32,13 @@ const FavoriteButton: FC<IFavoriteButton> = ({ isSmall, movieId }) => {
 					color={'white'}
 				/>
 			</Animated.View>
-			<View>
+			<Animated.View style={fillStyle}>
 				<MaterialCommunityIcons
 					name={'heart'}
 					size={isSmall ? 19 : 22}
 					color={'#dc3f41'}
 				/>
-			</View>
+			</Animated.View>
 		</BlurButton>
 	)
 }
