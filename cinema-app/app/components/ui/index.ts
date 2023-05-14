@@ -1,5 +1,6 @@
 export { default as Loader } from './Loader'
 export { default as Button } from './button/Button'
+export { default as BlurButton } from './blur-button/BlurButton'
 
 export { default as Toast } from './Toast'
 export { default as Heading } from './heading/Heading'
