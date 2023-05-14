@@ -20,6 +20,13 @@ const FavoriteButton: FC<IFavoriteButton> = ({ isSmall, movieId }) => {
 					color={'white'}
 				/>
 			</View>
+			<View>
+				<MaterialCommunityIcons
+					name={'heart'}
+					size={isSmall ? 19 : 22}
+					color={'#dc3f41'}
+				/>
+			</View>
 		</BlurButton>
 	)
 }
