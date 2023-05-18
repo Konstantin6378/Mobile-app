@@ -4,6 +4,15 @@ import RenderHTML from 'react-native-render-html'
 
 const Description: FC<{ text: string }> = ({ text }) => {
 	const { width } = useWindowDimensions()
+
+	const tagsStyle = {
+		body: {
+			color: 'white',
+			fontSize: 17,
+			fontWeight: '300',
+			opacity: 0.5
+		}
+	}
 	return (
 		<View>
 			<RenderHTML
