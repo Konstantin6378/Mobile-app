@@ -4,6 +4,7 @@ import { Pressable, Text, View } from 'react-native'
 
 import { useTypedNavigation } from '@/hooks/useTypedNavigation'
 
+import Description from '../../heading/Description'
 import Heading from '../../heading/Heading'
 
 import { IMovieCatalog } from './movie-catalog.interface'
