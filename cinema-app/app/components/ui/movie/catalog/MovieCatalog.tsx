@@ -30,6 +30,7 @@ const MovieCatalog: FC<IMovieCatalog> = ({
 				)}
 				<Text>MovieCatalog</Text>
 			</View>
+			{description && <Description text={description} />}
 		</View>
 	)
 }
