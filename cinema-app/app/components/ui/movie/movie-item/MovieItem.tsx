@@ -1,7 +1,7 @@
 import cn from 'clsx'
 import { BlurView } from 'expo-blur'
 import { FC } from 'react'
-import { Image, Pressable, StyleSheet, View } from 'react-native'
+import { Image, Pressable, StyleSheet, Text, View } from 'react-native'
 import Animated from 'react-native-reanimated'
 
 import { useTypedNavigation } from '@/hooks/useTypedNavigation'
@@ -63,6 +63,13 @@ const MovieItem: FC<IMovieItem> = ({ index, movie, className }) => {
 				<View className='-ml-2 -mb-0.5'>
 					<Rating rating={movie.rating} size={16} />
 				</View>
+
+				<Text
+					className='text-white text-lg font-semibold mb-1'
+					numberOfLines={1}
+				>
+					{movie.title}
+				</Text>
 			</BlurView>
 		</ReanimatedPressable>
 	)
