@@ -1,4 +1,5 @@
 import cn from 'clsx'
+import { BlurView } from 'expo-blur'
 import { FC } from 'react'
 import { Image, Pressable, StyleSheet, View } from 'react-native'
 import Animated from 'react-native-reanimated'
@@ -10,6 +11,7 @@ import { IMovie } from '@/shared/types/movie.interface'
 
 import { getMediaSource } from '@/utils/getMediaSource'
 
+import Rating from './Rating'
 import FavoriteButton from './favorite-button/FavoriteButton'
 import { useMovieItemAnimation } from './useMovieItemAnimation'
 
@@ -50,6 +52,18 @@ const MovieItem: FC<IMovieItem> = ({ index, movie, className }) => {
 				style={{ resizeMode: 'cover', ...StyleSheet.absoluteFillObject }}
 				source={getMediaSource(movie.poster)}
 			/>
+
+			<BlurView
+				intensity={25}
+				className={cn(
+					'absolute w-full bottom-0 left-0 ring-0 items-center pt-0.5 px-2',
+					className
+				)}
+			>
+				<View className='-ml-2 -mb-0.5'>
+					<Rating rating={movie.rating} size={16} />
+				</View>
+			</BlurView>
 		</ReanimatedPressable>
 	)
 }
