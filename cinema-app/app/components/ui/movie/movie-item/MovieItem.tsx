@@ -8,6 +8,7 @@ import { useTypedRoute } from '@/hooks/useTypedRoute'
 
 import { IMovie } from '@/shared/types/movie.interface'
 
+import FavoriteButton from './favorite-button/FavoriteButton'
 import { useMovieItemAnimation } from './useMovieItemAnimation'
 
 const ReanimatedPressable = Animated.createAnimatedComponent(Pressable)
@@ -38,7 +39,9 @@ const MovieItem: FC<IMovieItem> = ({ index, movie, className }) => {
 			className={cn('rounded-xl overflow-hidden h-56', className)}
 		>
 			{isFavoritePage && (
-				<View className='absolute z-1 right-1.5 top-1.5'></View>
+				<View className='absolute z-1 right-1.5 top-1.5'>
+					<FavoriteButton movieId={movie._id} isSmall />
+				</View>
 			)}
 		</ReanimatedPressable>
 	)
