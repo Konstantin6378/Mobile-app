@@ -13,7 +13,7 @@ import { IMovieCatalog } from './movie-catalog.interface'
 const MovieCatalog: FC<IMovieCatalog> = ({
 	description,
 	isBackButton,
-	movies,
+	movies = [],
 	title
 }) => {
 	const { goBack } = useTypedNavigation()
