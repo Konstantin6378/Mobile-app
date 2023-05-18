@@ -1,12 +1,14 @@
 import cn from 'clsx'
 import { FC } from 'react'
-import { Pressable, Text, View } from 'react-native'
+import { Image, Pressable, StyleSheet, View } from 'react-native'
 import Animated from 'react-native-reanimated'
 
 import { useTypedNavigation } from '@/hooks/useTypedNavigation'
 import { useTypedRoute } from '@/hooks/useTypedRoute'
 
 import { IMovie } from '@/shared/types/movie.interface'
+
+import { getMediaSource } from '@/utils/getMediaSource'
 
 import FavoriteButton from './favorite-button/FavoriteButton'
 import { useMovieItemAnimation } from './useMovieItemAnimation'
@@ -43,6 +45,11 @@ const MovieItem: FC<IMovieItem> = ({ index, movie, className }) => {
 					<FavoriteButton movieId={movie._id} isSmall />
 				</View>
 			)}
+
+			<Image
+				style={{ resizeMode: 'cover', ...StyleSheet.absoluteFillObject }}
+				source={getMediaSource(movie.poster)}
+			/>
 		</ReanimatedPressable>
 	)
 }
