@@ -38,7 +38,9 @@ const MovieCatalog: FC<IMovieCatalog> = ({
 				<View className='flex-row flex-wrap justify-between mt-5 mb-32'>
 					{movies?.length ? (
 						movies.map((movie, index) => (
-							<MovieItem index={index} movie={movie} />
+							<View className='mb-6' key={movie._id}>
+								<MovieItem index={index} movie={movie} />
+							</View>
 						))
 					) : (
 						<Text className='text-white text-lg'> Elements not found</Text>
