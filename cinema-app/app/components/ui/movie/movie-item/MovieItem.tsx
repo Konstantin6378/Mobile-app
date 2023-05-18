@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { Text, View } from 'react-native'
+import { Pressable, Text, View } from 'react-native'
 
 import { useTypedNavigation } from '@/hooks/useTypedNavigation'
 import { useTypedRoute } from '@/hooks/useTypedRoute'
@@ -10,10 +10,12 @@ const MovieItem: FC = () => {
 
 	const isFavoritePage = name === 'Favorites'
 
+	// Animations
+
 	return (
-		<View>
+		<Pressable>
 			<Text>MovieItem</Text>
-		</View>
+		</Pressable>
 	)
 }
 export default MovieItem
