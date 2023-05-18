@@ -1,8 +1,11 @@
 import { FC } from 'react'
 import { Pressable, Text, View } from 'react-native'
+import Animated from 'react-native-reanimated'
 
 import { useTypedNavigation } from '@/hooks/useTypedNavigation'
 import { useTypedRoute } from '@/hooks/useTypedRoute'
+
+const ReanimatedPressable = Animated.createAnimatedComponent(Pressable)
 
 const MovieItem: FC = () => {
 	const { navigate } = useTypedNavigation()
@@ -13,9 +16,9 @@ const MovieItem: FC = () => {
 	// Animations
 
 	return (
-		<Pressable>
+		<ReanimatedPressable>
 			<Text>MovieItem</Text>
-		</Pressable>
+		</ReanimatedPressable>
 	)
 }
 export default MovieItem
