@@ -20,7 +20,7 @@ const FavoriteButton: FC<IFavoriteButton> = ({ isSmall, movieId }) => {
 
 	return (
 		<BlurButton
-			isSmall
+			isSmall={isSmall}
 			onPress={() => {
 				liked.value = withSpring(liked.value === 1 ? 0 : 1)
 				toggleFavorite()
