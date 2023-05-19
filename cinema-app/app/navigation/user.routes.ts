@@ -1,3 +1,4 @@
+import Genre from '@/components/screens/genre/Genre'
 import {
 	Auth,
 	Favorites,
@@ -34,6 +35,10 @@ export const userRoutes: IRoute[] = [
 	{
 		name: 'Profile',
 		component: Profile
+	},
+	{
+		name: 'Genre',
+		component: Genre
 	}
 ]
 
