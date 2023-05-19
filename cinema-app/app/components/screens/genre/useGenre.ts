@@ -16,7 +16,9 @@ export const useGenre = () => {
 	const { isLoading: isMoviesLoading, data: movies } = useQuery(
 		['get movies by genre', genreId],
 		() => MovieService.getByGenres([genreId]),
-		{}
+		{
+			enabled: !!genreId
+		}
 	)
-	return { movies, isLoading }
+	return { genre, movies, isLoading: isLoading || isMoviesLoading }
 }
