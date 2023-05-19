@@ -7,9 +7,16 @@ import { MovieService } from '@/services/movie.service'
 
 export const useGenre = () => {
 	const { params } = useTypedRoute<'Genre'>()
-	const { isLoading, data: movies } = useQuery(
+	const { isLoading, data: genre } = useQuery(
 		['get genre by slug', params.slug],
 		() => GenreService.getBySlug(params.slug)
+	)
+	const genreId = genre?._id || ''
+
+	const { isLoading: isMoviesLoading, data: movies } = useQuery(
+		['get movies by genre', genreId],
+		() => MovieService.getByGenres([genreId]),
+		{}
 	)
 	return { movies, isLoading }
 }
