@@ -1,6 +1,7 @@
 import { FC } from 'react'
 
 import { Heading, Layout, Loader, MovieCatalog } from '@/components/ui'
+import NotFound from '@/components/ui/NotFound'
 
 import { useGenre } from './useGenre'
 
@@ -10,11 +11,16 @@ const Genre: FC = () => {
 	return (
 		<Layout isHasPadding>
 			<Heading title={'Genre'} />
-			<MovieCatalog
-				title='Genre'
-				movies={movies}
-				description='Genre movies in excellent quality: legal, safe, without ads'
-			/>
+			{genre ? (
+				<MovieCatalog
+					title={genre.name}
+					movies={movies}
+					description={genre.description}
+					isBackButton
+				/>
+			) : (
+				<NotFound />
+			)}
 		</Layout>
 	)
 }
