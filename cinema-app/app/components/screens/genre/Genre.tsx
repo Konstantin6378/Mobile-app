@@ -12,12 +12,14 @@ const Genre: FC = () => {
 		<Layout isHasPadding>
 			<Heading title={'Genre'} />
 			{genre ? (
-				<MovieCatalog
-					title={genre.name}
-					movies={movies}
-					description={genre.description}
-					isBackButton
-				/>
+				movies && (
+					<MovieCatalog
+						title={genre.name}
+						movies={[movies]}
+						description={genre.description}
+						isBackButton
+					/>
+				)
 			) : (
 				<NotFound />
 			)}
