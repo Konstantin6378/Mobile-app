@@ -5,7 +5,7 @@ import { Heading, Layout, Loader, MovieCatalog } from '@/components/ui'
 import { useGenre } from './useGenre'
 
 const Genre: FC = () => {
-	const { isLoading, movies } = useGenre()
+	const { isLoading, movies, genre } = useGenre()
 	if (isLoading) return <Loader />
 	return (
 		<Layout isHasPadding>
