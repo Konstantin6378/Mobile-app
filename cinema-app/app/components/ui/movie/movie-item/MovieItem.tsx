@@ -47,7 +47,7 @@ const MovieItem: FC<IMovieItem> = ({ index, movie, style }) => {
 					slug: movie.slug
 				})
 			}
-			className={cn('rounded-xl overflow-hidden h-56', className)}
+			className={cn('rounded-xl overflow-hidden h-56')}
 		>
 			{isFavoritePage && (
 				<View className='absolute z-1 right-1.5 top-1.5'>
@@ -63,8 +63,7 @@ const MovieItem: FC<IMovieItem> = ({ index, movie, style }) => {
 			<BlurView
 				intensity={25}
 				className={cn(
-					'absolute w-full bottom-0 left-0 ring-0 items-center pt-0.5 px-2',
-					className
+					'absolute w-full bottom-0 left-0 ring-0 items-center pt-0.5 px-2'
 				)}
 			>
 				<View className='-ml-2 -mb-0.5'>
