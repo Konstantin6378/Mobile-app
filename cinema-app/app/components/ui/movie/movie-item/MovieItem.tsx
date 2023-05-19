@@ -1,7 +1,14 @@
 import cn from 'clsx'
 import { BlurView } from 'expo-blur'
 import { FC } from 'react'
-import { Image, Pressable, StyleSheet, Text, View } from 'react-native'
+import {
+	Image,
+	Pressable,
+	StyleSheet,
+	Text,
+	View,
+	ViewStyle
+} from 'react-native'
 import Animated from 'react-native-reanimated'
 
 import { useTypedNavigation } from '@/hooks/useTypedNavigation'
@@ -19,17 +26,17 @@ const ReanimatedPressable = Animated.createAnimatedComponent(Pressable)
 
 interface IMovieItem {
 	index: number
-	className?: string
+	style?: ViewStyle
 	movie: IMovie
 }
 
-const MovieItem: FC<IMovieItem> = ({ index, movie, className }) => {
+const MovieItem: FC<IMovieItem> = ({ index, movie, style }) => {
 	const { navigate } = useTypedNavigation()
 	const { name } = useTypedRoute()
 
 	const isFavoritePage = name === 'Favorites'
 
-	const { styleAnimation } = useMovieItemAnimation(index)
+	const { styleAnimation } = useMovieItemAnimation(index, style)
 	// Animations
 
 	return (
