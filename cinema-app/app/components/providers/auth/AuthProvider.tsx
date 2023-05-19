@@ -6,9 +6,6 @@ import {
 	useEffect,
 	useState
 } from 'react'
-import { View } from 'react-native'
-
-import { IUser } from '@/shared/types/user.interface'
 
 import { getAccessToken, getUserFromStorage } from '@/services/auth/auth.helper'
 
