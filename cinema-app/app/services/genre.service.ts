@@ -38,18 +38,18 @@ export const GenreService = {
 		})
 	},
 
-	async delete(_id: string) {
-		return request<string>({
-			url: getGenresUrl(`/${_id}`),
-			method: 'DELETE'
-		})
-	},
-
 	async update(_id: string, data: IGenreEditInput) {
 		return request<string>({
 			url: getGenresUrl(`/${_id}`),
 			method: 'PUT',
 			data
+		})
+	},
+
+	async delete(_id: string) {
+		return request<string>({
+			url: getGenresUrl(`/${_id}`),
+			method: 'DELETE'
 		})
 	}
 }
