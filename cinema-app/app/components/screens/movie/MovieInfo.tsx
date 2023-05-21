@@ -1,6 +1,8 @@
 import { FC } from 'react'
 import { Animated, Text, View } from 'react-native'
 
+import { Rating } from '@/components/ui'
+
 import { IMovie } from '@/shared/types/movie.interface'
 
 interface IMovieInfo {
@@ -16,6 +18,9 @@ const MovieInfo: FC<IMovieInfo> = ({ movie }) => {
 			>
 				{movie.title}
 			</Text>
+			<View className='mb-4 flex-row items-center opacity-70'>
+				<Rating rating={movie.rating} size={18} />
+			</View>
 		</Animated.View>
 	)
 }
