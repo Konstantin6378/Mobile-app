@@ -32,6 +32,14 @@ export const userRoutes: IRoute[] = [
 	{
 		name: 'Genre',
 		component: Genre
+	},
+	{
+		name: 'Actor',
+		component: Actor
+	},
+	{
+		name: 'Movie',
+		component: Movie
 	}
 ]
 
