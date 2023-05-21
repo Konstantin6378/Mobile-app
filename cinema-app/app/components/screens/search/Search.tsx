@@ -16,9 +16,6 @@ const Search: FC = () => {
 					placeholder='Type something...'
 					control={control}
 					name='searchTerm'
-					rules={{
-						required: 'Search term is required!'
-					}}
 					keyboardType='web-search'
 				/>
 			</View>
