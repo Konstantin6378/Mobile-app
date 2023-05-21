@@ -3,6 +3,7 @@ import { Text, View } from 'react-native'
 
 import { Layout, Loader } from '@/components/ui'
 
+import MovieHeader from './MovieHeader'
 import { useMovie } from './useMovie'
 
 const Movie: FC = () => {
@@ -11,7 +12,7 @@ const Movie: FC = () => {
 	if (!movie) return null
 	return (
 		<Layout style={{ paddingTop: 0 }}>
-			<Text>Movie</Text>
+			<MovieHeader movie={movie} />
 		</Layout>
 	)
 }
