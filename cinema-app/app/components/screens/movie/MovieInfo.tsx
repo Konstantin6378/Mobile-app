@@ -1,3 +1,4 @@
+import { Entypo } from '@expo/vector-icons'
 import { FC } from 'react'
 import { Animated, Text, View } from 'react-native'
 
@@ -20,6 +21,12 @@ const MovieInfo: FC<IMovieInfo> = ({ movie }) => {
 			</Text>
 			<View className='mb-4 flex-row items-center opacity-70'>
 				<Rating rating={movie.rating} size={18} />
+				<Entypo
+					name='dot-single'
+					size={18}
+					color='rgba(255,255,255,.5)'
+					style={{ marginLeft: 4 }}
+				/>
 			</View>
 		</Animated.View>
 	)
