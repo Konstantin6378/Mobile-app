@@ -10,6 +10,9 @@ export type TypeRootStackParamList = {
 	Genre: {
 		slug: string
 	}
+	Actor: {
+		slug: string
+	}
 	Search: undefined
 	Favorites: undefined
 	Profile: undefined
