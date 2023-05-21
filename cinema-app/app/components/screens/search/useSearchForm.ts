@@ -1,6 +1,8 @@
+import { useMemo } from 'react'
 import { useForm } from 'react-hook-form'
 
 import { ISearchFormData } from './search.interface'
+import { useDebounced } from './useDebounced'
 
 export const useSearchForm = () => {
 	const { control, watch } = useForm<ISearchFormData>({
@@ -8,5 +10,7 @@ export const useSearchForm = () => {
 	})
 
 	const searchTerm = watch('searchTerm')
-	const debouncedSearch = useDebounce()
+	const debouncedSearch = useDebounced(searchTerm, 500)
+
+	return useMemo(() => ({ debouncedSearch, searchTerm, control }), [searchTerm])
 }
