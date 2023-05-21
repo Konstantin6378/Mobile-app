@@ -2,7 +2,7 @@ import { Entypo } from '@expo/vector-icons'
 import { FC } from 'react'
 import { Animated, StyleSheet, Text, View } from 'react-native'
 
-import { Rating } from '@/components/ui'
+import { GenreList, Rating } from '@/components/ui'
 
 import { IMovie } from '@/shared/types/movie.interface'
 
@@ -36,6 +36,7 @@ const MovieInfo: FC<IMovieInfo> = ({ movie }) => {
 				/>
 				<Text style={styles.text}>{movie.parameters.year}</Text>
 			</View>
+			<GenreList genres={movie.genres} />
 		</Animated.View>
 	)
 }
