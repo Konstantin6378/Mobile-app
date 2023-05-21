@@ -6,4 +6,7 @@ export const useSearchForm = () => {
 	const { control, watch } = useForm<ISearchFormData>({
 		mode: 'onChange'
 	})
+
+	const searchTerm = watch('searchTerm')
+	const debouncedSearch = useDebounce()
 }
