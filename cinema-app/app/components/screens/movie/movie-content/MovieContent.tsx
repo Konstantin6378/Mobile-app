@@ -20,7 +20,7 @@ const MovieContent: FC<IMovieComponent> = ({ movie }) => {
 		>
 			<MovieInfo movie={movie} />
 			<View className='bg-[#090909] px-6 pt-1 pb-24'>
-				<ActorCarousel />
+				<ActorCarousel actors={movie.actors} />
 				<RelatedMovies />
 			</View>
 		</Animated.ScrollView>
