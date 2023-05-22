@@ -5,6 +5,7 @@ import { Layout, Loader } from '@/components/ui'
 
 import MovieBackground from './MovieBackground'
 import MovieHeader from './MovieHeader'
+import MovieContent from './movie-content/MovieContent'
 import MovieInfo from './movie-content/MovieInfo'
 import { useMovie } from './useMovie'
 
@@ -16,7 +17,8 @@ const Movie: FC = () => {
 		<Layout style={{ paddingTop: 0 }}>
 			<MovieHeader movie={movie} />
 			<MovieBackground movie={movie} />
-			<MovieInfo movie={movie} />
+			{/* <MovieInfo movie={movie} /> */}
+			<MovieContent movie={movie} />
 		</Layout>
 	)
 }
