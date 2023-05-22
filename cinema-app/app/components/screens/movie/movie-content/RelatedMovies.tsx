@@ -16,8 +16,10 @@ const RelatedMovies: FC<IRelatedMovies> = ({ currentMovieId, genreIds }) => {
 	if (isLoading) return <Loader />
 	if (!data?.length) return null
 	return (
-		<View>
-			<Text>RelatedMovies</Text>
+		<View className='my-8'>
+			<Text className='text-white text-2xl font-semibold mb-5'>
+				Related movies
+			</Text>
 		</View>
 	)
 }
