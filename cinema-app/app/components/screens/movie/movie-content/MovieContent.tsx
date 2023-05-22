@@ -21,7 +21,10 @@ const MovieContent: FC<IMovieComponent> = ({ movie }) => {
 			<MovieInfo movie={movie} />
 			<View className='bg-[#090909] px-6 pt-1 pb-24'>
 				<ActorCarousel actors={movie.actors} />
-				<RelatedMovies />
+				<RelatedMovies
+					currentMovieId={movie._id}
+					genreIds={movie.genres.map(({ _id }) => _id)}
+				/>
 			</View>
 		</Animated.ScrollView>
 	)
