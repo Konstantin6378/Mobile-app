@@ -24,6 +24,7 @@ const RelatedMovies: FC<IRelatedMovies> = ({ currentMovieId, genreIds }) => {
 				Related movies
 			</Text>
 			<HorizontalList
+				snapToInterval={160}
 				data={data}
 				//@ts-ignore
 				renderItem={({ item: movie, index }: ListRenderItemInfo<IMovie>) => (
