@@ -31,7 +31,11 @@ const RelatedMovies: FC<IRelatedMovies> = ({ currentMovieId, genreIds }) => {
 						index={index}
 						movie={movie}
 						key={movie._id}
-						className='w-36 mr-4'
+						className='mr-4'
+						style={{
+							width: 144,
+							marginRight: 16
+						}}
 					/>
 				)}
 			/>
