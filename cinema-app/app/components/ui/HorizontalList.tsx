@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, memo } from 'react'
 import { FlatList, FlatListProps, Platform } from 'react-native'
 
 const HorizontalList = <T extends any>(props: FlatListProps<T>) => {
@@ -13,4 +13,4 @@ const HorizontalList = <T extends any>(props: FlatListProps<T>) => {
 		/>
 	)
 }
-export default HorizontalList
+export default memo(HorizontalList)
