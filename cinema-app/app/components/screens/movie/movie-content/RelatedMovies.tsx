@@ -1,7 +1,10 @@
 import { FC } from 'react'
-import { Text, View } from 'react-native'
+import { ListRenderItemInfo, Text, View } from 'react-native'
 
-import { Loader } from '@/components/ui'
+import { Loader, MovieItem } from '@/components/ui'
+import HorizontalList from '@/components/ui/HorizontalList'
+
+import { IMovie } from '@/shared/types/movie.interface'
 
 import { useGetRelatedMovies } from './useRelatedMovies'
 
@@ -20,6 +23,17 @@ const RelatedMovies: FC<IRelatedMovies> = ({ currentMovieId, genreIds }) => {
 			<Text className='text-white text-2xl font-semibold mb-5'>
 				Related movies
 			</Text>
+			<HorizontalList
+				data={data}
+				renderItem={({ item: movie, index }: ListRenderItemInfo<IMovie>) => (
+					<MovieItem
+						index={index}
+						movie={movie}
+						key={movie._id}
+						className='w-36 mr-4'
+					/>
+				)}
+			/>
 		</View>
 	)
 }
