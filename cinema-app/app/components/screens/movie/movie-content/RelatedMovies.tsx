@@ -25,6 +25,7 @@ const RelatedMovies: FC<IRelatedMovies> = ({ currentMovieId, genreIds }) => {
 			</Text>
 			<HorizontalList
 				data={data}
+				//@ts-ignore
 				renderItem={({ item: movie, index }: ListRenderItemInfo<IMovie>) => (
 					<MovieItem
 						index={index}
