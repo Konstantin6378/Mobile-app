@@ -5,7 +5,7 @@ import { Layout, Loader } from '@/components/ui'
 
 import MovieBackground from './MovieBackground'
 import MovieHeader from './MovieHeader'
-import MovieInfo from './MovieInfo'
+import MovieInfo from './movie-content/MovieInfo'
 import { useMovie } from './useMovie'
 
 const Movie: FC = () => {
