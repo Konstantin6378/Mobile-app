@@ -2,7 +2,10 @@ import { useQuery } from '@tanstack/react-query'
 
 import { MovieService } from '@/services/movie.service'
 
-export const useRelatedMovies = (genreIds: string[], currentMovieId: string) =>
+export const useGetRelatedMovies = (
+	genreIds: string[],
+	currentMovieId: string
+) =>
 	useQuery(
 		['get related movies by genres', genreIds],
 		() => MovieService.getByGenres(genreIds),
