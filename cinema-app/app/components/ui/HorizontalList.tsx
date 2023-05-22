@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import { FlatList, FlatListProps, Platform } from 'react-native'
 
-const HorizontalList: FC = (props: FlatListProps<any>) => {
+const HorizontalList = <T extends any>(props: FlatListProps<T>) => {
 	return (
 		<FlatList
 			horizontal
