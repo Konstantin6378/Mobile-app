@@ -4,13 +4,11 @@ import { Animated, ScrollView, Text } from 'react-native'
 
 import { IMovie } from '@/shared/types/movie.interface'
 
+import { IMovieComponent } from '../movie-page.interface'
+
 import MovieInfo from './MovieInfo'
 
-interface IMovieContent {
-	movie: IMovie
-}
-
-const MovieContent: FC = () => {
+const MovieContent: FC<IMovieComponent> = ({ movie }) => {
 	const ref = useRef<ScrollView>(null)
 	useScrollToTop(ref)
 
