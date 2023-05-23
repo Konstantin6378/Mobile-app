@@ -1,4 +1,5 @@
-import { FC } from 'react'
+import { FC, useRef } from 'react'
+import { Animated } from 'react-native'
 
 import { Layout, Loader } from '@/components/ui'
 
@@ -8,6 +9,7 @@ import MovieContent from './movie-content/MovieContent'
 import { useMovie } from './useMovie'
 
 const Movie: FC = () => {
+	const y = useRef(new Animated.Value(0)).current
 	const { movie, isLoading } = useMovie()
 	if (isLoading) return <Loader />
 	if (!movie) return null
