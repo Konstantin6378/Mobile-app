@@ -3,12 +3,13 @@ import { FC, useRef } from 'react'
 import { Animated, ScrollView, Text, View } from 'react-native'
 
 import { IMovieComponent } from '../movie-page.interface'
+import { HEADER_HEIGHT } from '../movie.constant'
 
 import ActorCarousel from './ActorCarousel'
 import MovieInfo from './MovieInfo'
 import RelatedMovies from './RelatedMovies'
 
-const MovieContent: FC<IMovieComponent> = ({ movie }) => {
+const MovieContent: FC<IMovieComponent> = ({ movie, y }) => {
 	const ref = useRef<ScrollView>(null)
 	useScrollToTop(ref)
 
@@ -17,8 +18,21 @@ const MovieContent: FC<IMovieComponent> = ({ movie }) => {
 			ref={ref}
 			showsVerticalScrollIndicator={false}
 			scrollEventThrottle={16}
+			onScroll={Animated.event(
+				[
+					{
+						nativeEvent: { contentOffset: { y } }
+					}
+				],
+				{
+					useNativeDriver: true
+				}
+			)}
+			contentContainerStyle={{
+				paddingTop: HEADER_HEIGHT / 1.3
+			}}
 		>
-			<MovieInfo movie={movie} />
+			<MovieInfo movie={movie} y={y} />
 			<View className='bg-[#090909] px-6 pt-1 pb-24'>
 				<ActorCarousel actors={movie.actors} />
 				<RelatedMovies
