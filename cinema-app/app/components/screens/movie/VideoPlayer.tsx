@@ -12,7 +12,14 @@ const VideoPlayer: FC<{ video: string }> = ({ video }) => {
 
 	return (
 		<>
-			<Button icon='play' className='mb-6'>
+			<Button
+				icon='play'
+				className='mb-6'
+				onPress={async () => {
+					await videoRef.current?.presentFullscreenPlayer()
+					await videoRef.current?.playAsync()
+				}}
+			>
 				Watch movie
 			</Button>
 			<View>
