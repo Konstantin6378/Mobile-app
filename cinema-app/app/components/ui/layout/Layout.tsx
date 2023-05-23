@@ -3,6 +3,8 @@ import { FC, PropsWithChildren } from 'react'
 import { Platform, View, ViewStyle } from 'react-native'
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context'
 
+import AdminButton from './AdminButton'
+
 interface ILayout {
 	className?: string
 	style?: ViewStyle
