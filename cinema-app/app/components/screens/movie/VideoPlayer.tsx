@@ -1,4 +1,5 @@
 import { Video } from 'expo-av'
+import { ResizeMode } from 'expo-av/build/Video.types'
 import { FC, useRef } from 'react'
 import { Text, View } from 'react-native'
 
@@ -20,6 +21,9 @@ const VideoPlayer: FC<{ video: string }> = ({ video }) => {
 					source={getMediaSource(video)}
 					style={{ height: 180 }}
 					className='mb-5 w-full hidden'
+					shouldPlay
+					useNativeControls
+					resizeMode={ResizeMode.CONTAIN}
 				/>
 			</View>
 		</>
