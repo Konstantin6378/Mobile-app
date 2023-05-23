@@ -17,7 +17,7 @@ export const useActor = () => {
 
 	const { isLoading: isMovieLoading, data: movies } = useQuery(
 		['get movies by actor', actorId],
-		() => MovieService.getByActors([actorId]),
+		() => MovieService.getByActor(actorId),
 		{
 			enabled: !!actorId
 		}
