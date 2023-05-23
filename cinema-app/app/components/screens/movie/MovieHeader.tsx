@@ -9,7 +9,7 @@ import { useTypedNavigation } from '@/hooks/useTypedNavigation'
 import { IMovieComponent } from './movie-page.interface'
 import { inputRange } from './movie.constant'
 
-const MovieHeader: FC<IMovieComponent> = ({ movie }) => {
+const MovieHeader: FC<IMovieComponent> = ({ movie, y }) => {
 	const { goBack } = useTypedNavigation()
 
 	const { top } = useSafeAreaInsets()
