@@ -6,9 +6,14 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { getMediaSource } from '@/utils/getMediaSource'
 
 import { IMovieComponent } from './movie-page.interface'
+import { inputRange } from './movie.constant'
 
-const MovieBackground: FC<IMovieComponent> = ({ movie }) => {
+const MovieBackground: FC<IMovieComponent> = ({ movie, y }) => {
 	const { top } = useSafeAreaInsets()
+	const scale = y.interpolate({
+		inputRange,
+		outputRange: []
+	})
 	return (
 		<Animated.View style={StyleSheet.absoluteFillObject}>
 			<Image
