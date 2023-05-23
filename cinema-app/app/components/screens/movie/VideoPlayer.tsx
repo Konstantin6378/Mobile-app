@@ -15,7 +15,12 @@ const VideoPlayer: FC<{ video: string }> = ({ video }) => {
 				Watch movie
 			</Button>
 			<View>
-				<Video ref={videoRef} source={getMediaSource(video)} />
+				<Video
+					ref={videoRef}
+					source={getMediaSource(video)}
+					style={{ height: 180 }}
+					className='mb-5 w-full hidden'
+				/>
 			</View>
 		</>
 	)
