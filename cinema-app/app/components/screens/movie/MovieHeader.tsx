@@ -29,7 +29,15 @@ const MovieHeader: FC<IMovieComponent> = ({ movie, y }) => {
 				className='bg-[#0D0404]'
 			/>
 			<BlurButton icon={'chevron-left'} iconSize={23} onPress={goBack} />
-			<Animated.View className='items-center w-2/3'>
+			<Animated.View
+				className='items-center w-2/3'
+				style={{
+					opacity: y.interpolate({
+						inputRange,
+						outputRange: [0, 0, 1.6]
+					})
+				}}
+			>
 				<Text
 					className='text-white font-semibold text-2xl mb-0.5 px-2'
 					numberOfLines={1}
