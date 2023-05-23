@@ -23,16 +23,10 @@ const PrivateNavigator: FC = () => {
 			}}
 		>
 			{user ? (
-				routes.map(route =>
-					user.isAdmin || !route.isAdmin ? (
-						<Stack.Screen key={route.name} {...route} />
-					) : (
-						<Stack.Screen
-							key='Screen404'
-							name='Screen404'
-							component={Screen404}
-						/>
-					)
+				user.isAdmin ? (
+					routes.map(route => <Stack.Screen key={route.name} {...route} />)
+				) : (
+					userRoutes.map(route => <Stack.Screen key={route.name} {...route} />)
 				)
 			) : (
 				<Stack.Screen name='Auth' component={Auth} />
