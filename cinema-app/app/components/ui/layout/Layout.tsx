@@ -1,6 +1,6 @@
 import cn from 'clsx'
 import { FC, PropsWithChildren } from 'react'
-import { Platform, StyleProp, View, ViewStyle } from 'react-native'
+import { Platform, View, ViewStyle } from 'react-native'
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context'
 
 interface ILayout {
@@ -29,6 +29,7 @@ const Layout: FC<PropsWithChildren<ILayout>> = ({
 			>
 				{children}
 			</View>
+			<AdmimButton />
 		</SafeAreaView>
 	)
 }
