@@ -15,9 +15,9 @@ const Movie: FC = () => {
 	if (!movie) return null
 	return (
 		<Layout style={{ paddingTop: 0 }}>
-			<MovieHeader movie={movie} />
-			<MovieBackground movie={movie} />
-			<MovieContent movie={movie} />
+			<MovieHeader movie={movie} y={y} />
+			<MovieBackground movie={movie} y={y} />
+			<MovieContent movie={movie} y={y} />
 		</Layout>
 	)
 }
