@@ -6,13 +6,19 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { getMediaSource } from '@/utils/getMediaSource'
 
 import { IMovieComponent } from './movie-page.interface'
-import { inputRange } from './movie.constant'
+import { HEADER_HEIGHT, inputRange } from './movie.constant'
 
 const MovieBackground: FC<IMovieComponent> = ({ movie, y }) => {
 	const { top } = useSafeAreaInsets()
 	const scale = y.interpolate({
 		inputRange,
-		outputRange: []
+		outputRange: [2, 1, 1],
+		extrapolate: 'clamp'
+	})
+
+	const translateY = y.interpolate({
+		inputRange,
+		outputRange: [-HEADER_HEIGHT / 2, 0, HEADER_HEIGHT * 0.01]
 	})
 	return (
 		<Animated.View style={StyleSheet.absoluteFillObject}>
