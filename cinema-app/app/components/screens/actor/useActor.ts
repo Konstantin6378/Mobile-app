@@ -2,26 +2,26 @@ import { useQuery } from '@tanstack/react-query'
 
 import { useTypedRoute } from '@/hooks/useTypedRoute'
 
-import { GenreService } from '@/services/genre.service'
+import { ActorService } from '@/services/actor.service'
 import { MovieService } from '@/services/movie.service'
 
-export const useGenre = () => {
-	const { params } = useTypedRoute<'Genre'>()
+export const useActor = () => {
+	const { params } = useTypedRoute<'Actor'>()
 
-	const { isLoading, data: genre } = useQuery(
-		['get genre by slug', params.slug],
-		() => GenreService.getBySlug(params.slug)
+	const { isLoading, data: actor } = useQuery(
+		['get actor by slug', params.slug],
+		() => ActorService.getBySlug(params.slug)
 	)
 
-	const genreId = genre?._id || ''
+	const actorId = actor?._id || ''
 
 	const { isLoading: isMovieLoading, data: movies } = useQuery(
-		['get movies by genre', genreId],
-		() => MovieService.getByGenres([genreId]),
+		['get movies by actor', actorId],
+		() => MovieService.getByActors([actorId]),
 		{
-			enabled: !!genreId
+			enabled: !!actorId
 		}
 	)
 
-	return { genre, movies, isLoading: isLoading || isMovieLoading }
+	return { actor, movies, isLoading: isLoading || isMovieLoading }
 }
