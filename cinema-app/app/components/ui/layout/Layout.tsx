@@ -29,7 +29,7 @@ const Layout: FC<PropsWithChildren<ILayout>> = ({
 			>
 				{children}
 			</View>
-			<AdmimButton />
+			<AdminButton />
 		</SafeAreaView>
 	)
 }
