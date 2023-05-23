@@ -13,9 +13,13 @@ const VideoPlayer: FC<{ video: string }> = ({ video }) => {
 		const enableAudio = async () => {
 			await Audio.setAudioModeAsync({
 				allowsRecordingIOS: false,
-				playsInSilentModeIOS: true
+				playsInSilentModeIOS: true,
+				staysActiveInBackground: false,
+				shouldDuckAndroid: false
 			})
+			await videoRef.current?.stopAsync()
 		}
+		let ignore = enableAudio()
 	}, [])
 
 	return (
