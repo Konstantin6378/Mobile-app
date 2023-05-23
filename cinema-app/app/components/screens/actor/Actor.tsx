@@ -1,19 +1,18 @@
 import { FC } from 'react'
-import { Text, View } from 'react-native'
+
+import { Heading, Layout, Loader, MovieCatalog } from '@/components/ui'
+import NotFound from '@/components/ui/NotFound'
+
+import { useActor } from './useActor'
 
 const Actor: FC = () => {
-	const { isLoading, movies, genre } = useGenre()
+	const { isLoading, movies, actor } = useActor()
 	if (isLoading) return <Loader />
 	return (
 		<Layout isHasPadding>
-			<Heading title={'Genre'} />
-			{genre ? (
-				<MovieCatalog
-					title={genre.name}
-					movies={movies}
-					description={genre.description}
-					isBackButton
-				/>
+			<Heading title={'Actor'} />
+			{actor ? (
+				<MovieCatalog title={actor.name} movies={movies} isBackButton />
 			) : (
 				<NotFound />
 			)}
