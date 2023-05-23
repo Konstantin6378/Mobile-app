@@ -18,7 +18,13 @@ const MovieHeader: FC<IMovieComponent> = ({ movie }) => {
 			style={{ marginTop: -top, paddingTop: top + 6 }}
 		>
 			<Animated.View
-				style={{ ...StyleSheet.absoluteFillObject }}
+				style={{
+					...StyleSheet.absoluteFillObject,
+					opacity: y.interpolate({
+						inputRange,
+						outputRange: [0, 0, 1.8]
+					})
+				}}
 				className='bg-[#0D0404]'
 			/>
 			<BlurButton icon={'chevron-left'} iconSize={23} onPress={goBack} />
