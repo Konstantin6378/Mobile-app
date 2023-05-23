@@ -6,8 +6,8 @@ import { BlurButton, FavoriteButton, Rating } from '@/components/ui'
 
 import { useTypedNavigation } from '@/hooks/useTypedNavigation'
 
-import { inputRange } from './movie-content/movie.constant'
 import { IMovieComponent } from './movie-page.interface'
+import { inputRange } from './movie.constant'
 
 const MovieHeader: FC<IMovieComponent> = ({ movie }) => {
 	const { goBack } = useTypedNavigation()
