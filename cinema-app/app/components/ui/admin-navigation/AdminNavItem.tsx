@@ -1,11 +1,21 @@
 import { FC } from 'react'
-import { Text, View } from 'react-native'
+import { Pressable, Text, View } from 'react-native'
 
-const AdminNavItem: FC = () => {
+import { useTypedNavigation } from '@/hooks/useTypedNavigation'
+import { useTypedRoute } from '@/hooks/useTypedRoute'
+
+import { INavItem } from './admin-navigation.interface'
+
+const AdminNavItem: FC<{ item: INavItem }> = ({ item }) => {
+	const { navigate } = useTypedNavigation()
+	const { name } = useTypedRoute()
 	return (
-		<View>
+		<Pressable
+			onPress={() => navigate(routerName)}
+			className='flex-row items-center mb-1'
+		>
 			<Text>AdminNavItem</Text>
-		</View>
+		</Pressable>
 	)
 }
 export default AdminNavItem
