@@ -1,10 +1,12 @@
 import { FC } from 'react'
 import { Text, View } from 'react-native'
 
+import Heading from '../heading/Heading'
+
 const AdminNavigation: FC = () => {
 	return (
 		<View>
-			<Text>AdminNavigation</Text>
+			<Heading title='AdminNavigate' />
 		</View>
 	)
 }
