@@ -6,12 +6,14 @@ import { useTypedRoute } from '@/hooks/useTypedRoute'
 
 import { INavItem } from './admin-navigation.interface'
 
-const AdminNavItem: FC<{ item: INavItem }> = ({ item }) => {
+const AdminNavItem: FC<{ item: INavItem }> = ({
+	item: { routeName, title, icon }
+}) => {
 	const { navigate } = useTypedNavigation()
 	const { name } = useTypedRoute()
 	return (
 		<Pressable
-			onPress={() => navigate(routerName)}
+			onPress={() => navigate(routeName)}
 			className='flex-row items-center mb-1'
 		>
 			<Text>AdminNavItem</Text>
