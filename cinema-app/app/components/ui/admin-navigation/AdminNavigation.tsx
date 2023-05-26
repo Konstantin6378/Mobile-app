@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, useState } from 'react'
 import { Text, View } from 'react-native'
 
 import { useTypedNavigation } from '@/hooks/useTypedNavigation'
@@ -11,6 +11,7 @@ interface IAdminNavigation {
 	isBackButton?: boolean
 }
 const AdminNavigation: FC<IAdminNavigation> = ({ title, isBackButton }) => {
+	const [isShow, setIsShow] = useState(false)
 	const { goBack } = useTypedNavigation()
 	return (
 		<View className='flex-row justify-between items-center z-10 mb-5'>
@@ -24,7 +25,11 @@ const AdminNavigation: FC<IAdminNavigation> = ({ title, isBackButton }) => {
 						onPress={goBack}
 					/>
 				)}
-				<BlurButton iconSize={24} className='w-12 h-12'>
+				<BlurButton
+					iconSize={24}
+					onPress={() => setIsShow(false)}
+					className='w-12 h-12'
+				>
 					OPEN
 				</BlurButton>
 			</View>
