@@ -1,11 +1,13 @@
 import { FC } from 'react'
 import { Text, View } from 'react-native'
 
+import { Layout } from '@/components/ui'
+
 const Admin: FC = () => {
 	return (
-		<View>
+		<Layout isHasPadding>
 			<Text>Admin</Text>
-		</View>
+		</Layout>
 	)
 }
 export default Admin
