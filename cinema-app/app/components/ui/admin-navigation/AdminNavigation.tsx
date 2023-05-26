@@ -3,10 +3,14 @@ import { Text, View } from 'react-native'
 
 import Heading from '../heading/Heading'
 
-const AdminNavigation: FC = () => {
+interface IAdminNavigation {
+	title: string
+	isBackButton?: boolean
+}
+const AdminNavigation: FC<IAdminNavigation> = ({ title, isBackButton }) => {
 	return (
 		<View>
-			<Heading title='AdminNavigate' />
+			<Heading title={title} />
 		</View>
 	)
 }
