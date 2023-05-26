@@ -13,6 +13,7 @@ const AdminNavItem: FC<{ item: INavItem }> = ({
 	const { name } = useTypedRoute()
 	return (
 		<Pressable
+			//@ts-ignore
 			onPress={() => navigate(routeName)}
 			className='flex-row items-center mb-1'
 		>
