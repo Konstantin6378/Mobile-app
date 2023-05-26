@@ -7,4 +7,22 @@ export const useHamburgerAnimation = (isShow: boolean) => {
 		}),
 		[isShow]
 	)
+
+	const transformFirstLineAnimation = useAnimatedStyle(
+		() => ({
+			transform: [
+        {
+          rotate: `${rotate.value}deg`
+        }
+      ]
+		}),
+		[isShow]
+	)
+
+	const widthSecondLineAnimation = useAnimatedStyle(
+		() => ({
+			width: withTiming(isShow ? 0 : 24)
+		}),
+		[isShow]
+	)
 }
