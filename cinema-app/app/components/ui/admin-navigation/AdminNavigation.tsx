@@ -35,7 +35,11 @@ const AdminNavigation: FC<IAdminNavigation> = ({ title, isBackButton }) => {
 					OPEN
 				</BlurButton>
 				<Animated.View>
-					<BlurView></BlurView>
+					<BlurView
+						intensity={50}
+						tint='dark'
+						className='absolute right-0 top-14 w-36 overflow-hidden rounded-2xl px-3.5 py-2.5'
+					></BlurView>
 				</Animated.View>
 			</View>
 		</View>
