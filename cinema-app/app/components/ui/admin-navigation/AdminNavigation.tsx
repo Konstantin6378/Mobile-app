@@ -1,7 +1,7 @@
 import { BlurView } from 'expo-blur'
 import { FC, useState } from 'react'
-import {  View } from 'react-native'
-import Animated from 'react-native-reanimated'
+import { View } from 'react-native'
+import Animated, { useAnimatedStyle, withSpring } from 'react-native-reanimated'
 
 import { useTypedNavigation } from '@/hooks/useTypedNavigation'
 
@@ -19,6 +19,17 @@ interface IAdminNavigation {
 const AdminNavigation: FC<IAdminNavigation> = ({ title, isBackButton }) => {
 	const [isShow, setIsShow] = useState(false)
 	const { goBack } = useTypedNavigation()
+
+	const translateXAnimation = useAnimatedStyle(() => ({
+		transform: [
+			{
+				translateX: withSpring(isShow ? 0 : 165, {
+					 damping: 11.7 
+				}) 
+			}
+		]
+	}))
+
 	return (
 		<View className='flex-row justify-between items-center z-10 mb-5'>
 			<Heading title={title} />
@@ -36,7 +47,7 @@ const AdminNavigation: FC<IAdminNavigation> = ({ title, isBackButton }) => {
 					onPress={() => setIsShow(!isShow)}
 					className='w-12 h-12'
 				>
-					<HamburgerAnimation isShow={isShow}/>
+					<HamburgerAnimation isShow={isShow} />
 				</BlurButton>
 				<Animated.View>
 					<BlurView
