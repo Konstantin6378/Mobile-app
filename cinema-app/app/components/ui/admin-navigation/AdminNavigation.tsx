@@ -33,7 +33,7 @@ const AdminNavigation: FC<IAdminNavigation> = ({ title, isBackButton }) => {
 				)}
 				<BlurButton
 					iconSize={24}
-					onPress={() => setIsShow(false)}
+					onPress={() => setIsShow(!isShow)}
 					className='w-12 h-12'
 				>
 					<HamburgerAnimation isShow={isShow}/>
