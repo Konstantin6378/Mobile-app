@@ -9,6 +9,7 @@ import { useScaleOnMount } from '@/hooks/useScaleOnMount'
 
 import { AdminService } from '@/services/admin.service'
 import { UserService } from '@/services/user.service'
+import { STYLE_BLOCK } from './statistics.styles'
 
 const CountUsers: FC = () => {
 	const { isLoading, data } = useQuery(['get count users'], () =>
@@ -17,7 +18,7 @@ const CountUsers: FC = () => {
 
 	const { styleAnimation } = useScaleOnMount()
 	return (
-		<View className='items-center justify-center text-center w-full border border-2 border-gray-500 rounded-2xl p-5'>
+		<View className= {`items-center justify-center ${STYLE_BLOCK}`}>
 			{isLoading ? (
 				<Loader />
 			) : (
