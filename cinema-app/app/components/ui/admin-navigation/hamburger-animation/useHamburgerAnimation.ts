@@ -1,4 +1,8 @@
-import { useAnimatedStyle, useDerivedValue, withTiming } from 'react-native-reanimated'
+import {
+	useAnimatedStyle,
+	useDerivedValue,
+	withTiming
+} from 'react-native-reanimated'
 
 export const useHamburgerAnimation = (isShow: boolean) => {
 	const widthSecondLineAnimation = useAnimatedStyle(
@@ -13,20 +17,27 @@ export const useHamburgerAnimation = (isShow: boolean) => {
 	const transformFirstLineAnimation = useAnimatedStyle(
 		() => ({
 			transform: [
-        {
-          rotate: `${rotate.value}deg`
-        },
-		{
-			translateY: withTiming(isShow ? 12 : 0)
-		}
-      ]
+				{
+					rotate: `${rotate.value}deg`
+				},
+				{
+					translateY: withTiming(isShow ? 12 : 0)
+				}
+			]
 		}),
 		[isShow]
 	)
 
-	const widthSecondLineAnimation = useAnimatedStyle(
+	const transformThirdLineAnimation = useAnimatedStyle(
 		() => ({
-			width: withTiming(isShow ? 0 : 24)
+			transform: [
+				{
+					rotate: `-${rotate.value}deg`
+				},
+				{
+					translateY: withTiming(isShow ? -12 : 0)
+				}
+			]
 		}),
 		[isShow]
 	)
