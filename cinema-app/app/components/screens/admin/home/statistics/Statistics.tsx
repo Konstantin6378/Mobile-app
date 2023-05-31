@@ -1,11 +1,11 @@
-import { FC } from 'react'
-import { Text, View } from 'react-native'
+import {FC} from 'react'
+import {View, Text} from 'react-native'
 
 const Statistics: FC = () => {
-	return (
-		<View>
-			<Text>Statistics</Text>
-		</View>
-	)
+  return (
+      <View>
+         <Text>Statistics</Text>
+      </View>
+  )
 }
 export default Statistics
