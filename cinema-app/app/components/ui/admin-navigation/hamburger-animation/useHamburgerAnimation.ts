@@ -43,13 +43,20 @@ export const useHamburgerAnimation = (isShow: boolean) => {
 	)
 
 	const styleAnimation = useAnimatedStyle(
-		()=> ({
+		() => ({
 			transform: [
-				
 				{
 					translateX: withTiming(isShow ? 8 : 0)
 				}
 			]
-		}),[isShow]
+		}),
+		[isShow]
 	)
+
+	return {
+		styleAnimation,
+		transformFirstLineAnimation,
+		transformThirdLineAnimation,
+		widthSecondLineAnimation
+	}
 }
