@@ -15,7 +15,10 @@ export const useHamburgerAnimation = (isShow: boolean) => {
 			transform: [
         {
           rotate: `${rotate.value}deg`
-        }
+        },
+		{
+			translateY: withTiming(isShow ? 12 : 0)
+		}
       ]
 		}),
 		[isShow]
