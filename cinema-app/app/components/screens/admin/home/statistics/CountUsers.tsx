@@ -28,6 +28,12 @@ const CountUsers: FC = () => {
 					{data}
 				</Animated.Text>
 			)}
+			<Animated.Text
+				className='opacity-70 text-xl text-white'
+				style={styleAnimation}
+			>
+				users
+			</Animated.Text>
 		</View>
 	)
 }
