@@ -2,7 +2,7 @@ import { FC } from 'react'
 import { Text, View } from 'react-native'
 
 import { useTrending } from '@/components/screens/trending/useTrending'
-import { Loader } from '@/components/ui'
+import { Loader, MovieItem } from '@/components/ui'
 
 import { STYLE_BLOCK } from './statistics.styles'
 
@@ -17,8 +17,10 @@ const PopularMovies: FC = () => {
 				{isLoading ? (
 					<Loader />
 				) : movies?.length ? (
-					movies.map(movie => (
-						<View key={movie._id} style={{ width: '47%' }}></View>
+					movies.map((movie, index) => (
+						<View key={movie._id} style={{ width: '47%' }}>
+              <MovieItem index={index} movie={movie} />
+            </View>
 					))
 				) : (
 					<Text className='text-white text-lg'>Elements not found</Text>
