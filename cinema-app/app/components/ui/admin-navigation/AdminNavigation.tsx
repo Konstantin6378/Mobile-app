@@ -10,6 +10,7 @@ import Heading from '../heading/Heading'
 
 import AdminNavItem from './AdminNavItem'
 import { navItems } from './admin-navigation.data'
+import HamburgerAnimation from './hamburger-animation/HamburgerAnimation'
 
 interface IAdminNavigation {
 	title: string
@@ -35,7 +36,7 @@ const AdminNavigation: FC<IAdminNavigation> = ({ title, isBackButton }) => {
 					onPress={() => setIsShow(false)}
 					className='w-12 h-12'
 				>
-					OPEN
+					<HamburgerAnimation isShow={isShow}/>
 				</BlurButton>
 				<Animated.View>
 					<BlurView
