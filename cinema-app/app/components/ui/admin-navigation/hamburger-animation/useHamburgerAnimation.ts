@@ -41,4 +41,15 @@ export const useHamburgerAnimation = (isShow: boolean) => {
 		}),
 		[isShow]
 	)
+
+	const styleAnimation = useAnimatedStyle(
+		()=> ({
+			transform: [
+				
+				{
+					translateX: withTiming(isShow ? 8 : 0)
+				}
+			]
+		}),[isShow]
+	)
 }
