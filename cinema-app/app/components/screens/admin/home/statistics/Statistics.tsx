@@ -1,10 +1,13 @@
 import {FC} from 'react'
 import {View, Text} from 'react-native'
+import CountUsers from './CountUsers'
+import PopularMovies from './PopularMovies'
 
 const Statistics: FC = () => {
   return (
-      <View>
-         <Text>Statistics</Text>
+      <View className='flex items-stretch'>
+        <CountUsers/>
+        <PopularMovies/>
       </View>
   )
 }
