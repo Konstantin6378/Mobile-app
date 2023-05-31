@@ -19,8 +19,8 @@ const PopularMovies: FC = () => {
 				) : movies?.length ? (
 					movies.map((movie, index) => (
 						<View key={movie._id} style={{ width: '47%' }}>
-              <MovieItem index={index} movie={movie} />
-            </View>
+							<MovieItem index={index} movie={movie} />
+						</View>
 					))
 				) : (
 					<Text className='text-white text-lg'>Elements not found</Text>
