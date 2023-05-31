@@ -7,7 +7,8 @@ import {
 export const useHamburgerAnimation = (isShow: boolean) => {
 	const widthSecondLineAnimation = useAnimatedStyle(
 		() => ({
-			width: withTiming(isShow ? 0 : 24)
+			width: withTiming(isShow ? 0 : 24),
+			marginVertical: 6.5
 		}),
 		[isShow]
 	)
