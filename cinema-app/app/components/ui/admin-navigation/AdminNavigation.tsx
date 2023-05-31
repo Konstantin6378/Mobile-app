@@ -1,6 +1,6 @@
 import { BlurView } from 'expo-blur'
 import { FC, useState } from 'react'
-import { Text, View } from 'react-native'
+import {  View } from 'react-native'
 import Animated from 'react-native-reanimated'
 
 import { useTypedNavigation } from '@/hooks/useTypedNavigation'
