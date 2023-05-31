@@ -1,5 +1,6 @@
+import { useIsFocused } from '@react-navigation/native'
 import { BlurView } from 'expo-blur'
-import { FC, useState } from 'react'
+import { FC, useEffect, useState } from 'react'
 import { View } from 'react-native'
 import Animated, { useAnimatedStyle, withSpring } from 'react-native-reanimated'
 
@@ -20,12 +21,18 @@ const AdminNavigation: FC<IAdminNavigation> = ({ title, isBackButton }) => {
 	const [isShow, setIsShow] = useState(false)
 	const { goBack } = useTypedNavigation()
 
+	const isFocused = useIsFocused()
+
+	useEffect(() => {
+		setIsShow(isFocused)
+	}, [isFocused])
+
 	const translateXAnimation = useAnimatedStyle(() => ({
 		transform: [
 			{
 				translateX: withSpring(isShow ? 0 : 165, {
-					 damping: 11.7 
-				}) 
+					damping: 11.7
+				})
 			}
 		]
 	}))
