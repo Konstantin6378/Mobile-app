@@ -49,7 +49,7 @@ const AdminNavigation: FC<IAdminNavigation> = ({ title, isBackButton }) => {
 				>
 					<HamburgerAnimation isShow={isShow} />
 				</BlurButton>
-				<Animated.View>
+				<Animated.View style={translateXAnimation}>
 					<BlurView
 						intensity={50}
 						tint='dark'
