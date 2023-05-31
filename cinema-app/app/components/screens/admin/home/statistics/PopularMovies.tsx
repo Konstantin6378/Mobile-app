@@ -20,6 +20,9 @@ const PopularMovies: FC = () => {
 					movies.map((movie, index) => (
 						<View key={movie._id} style={{ width: '47%' }}>
 							<MovieItem index={index} movie={movie} />
+							<Text className='text-white text-center mt-2 text-base'>
+								Opened {movie.countOpened} times
+							</Text>
 						</View>
 					))
 				) : (
