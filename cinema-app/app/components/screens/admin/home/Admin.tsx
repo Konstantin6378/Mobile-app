@@ -9,7 +9,7 @@ const Admin: FC = () => {
 		<Layout isHasPadding>
 			<AdminNavigation title='Statistics' />
 			<ScrollView showsVerticalScrollIndicator={false}>
-				<Statistics/>
+				<Statistics />
 			</ScrollView>
 		</Layout>
 	)

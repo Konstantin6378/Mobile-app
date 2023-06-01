@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { Text, View, useWindowDimensions } from 'react-native'
+import {  View, useWindowDimensions } from 'react-native'
 import RenderHTML from 'react-native-render-html'
 
 const Description: FC<{ text: string }> = ({ text }) => {

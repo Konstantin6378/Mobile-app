@@ -1,6 +1,6 @@
 import { MaterialIcons } from '@expo/vector-icons'
 import { FC } from 'react'
-import { Pressable, Text, View } from 'react-native'
+import { Pressable } from 'react-native'
 
 import { useAuth } from '@/hooks/useAuth'
 import { useTypedNavigation } from '@/hooks/useTypedNavigation'

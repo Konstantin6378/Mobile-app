@@ -1,7 +1,7 @@
 import cn from 'clsx'
 import { FC, PropsWithChildren } from 'react'
-import { Platform, View, ViewStyle } from 'react-native'
-import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context'
+import { Platform, View, ViewStyle,SafeAreaView } from 'react-native'
+import {  useSafeAreaInsets } from 'react-native-safe-area-context'
 
 import AdminButton from './AdminButton'
 

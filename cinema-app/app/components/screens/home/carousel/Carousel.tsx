@@ -1,5 +1,5 @@
 import { FC, useRef } from 'react'
-import { Animated, FlatList, Platform, View } from 'react-native'
+import { Animated,  Platform, View } from 'react-native'
 
 import { IMovie } from '@/shared/types/movie.interface'
 

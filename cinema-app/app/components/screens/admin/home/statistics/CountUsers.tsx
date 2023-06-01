@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
 import { FC } from 'react'
-import { Text, View } from 'react-native'
+import { View } from 'react-native'
 import Animated from 'react-native-reanimated'
 
 import { Loader } from '@/components/ui'
@@ -8,7 +8,6 @@ import { Loader } from '@/components/ui'
 import { useScaleOnMount } from '@/hooks/useScaleOnMount'
 
 import { AdminService } from '@/services/admin.service'
-import { UserService } from '@/services/user.service'
 import { STYLE_BLOCK } from './statistics.styles'
 
 const CountUsers: FC = () => {

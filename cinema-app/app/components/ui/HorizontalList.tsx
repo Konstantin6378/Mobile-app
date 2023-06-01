@@ -1,4 +1,4 @@
-import { FC, memo } from 'react'
+import {  memo } from 'react'
 import { FlatList, FlatListProps, Platform } from 'react-native'
 
 const HorizontalList = <T extends any>(props: FlatListProps<T>) => {
