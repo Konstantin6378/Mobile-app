@@ -1,4 +1,4 @@
-import { ImageSourcePropType } from 'react-native'
+
 
 import { SERVER_URL } from '@/config/api.config'
 
