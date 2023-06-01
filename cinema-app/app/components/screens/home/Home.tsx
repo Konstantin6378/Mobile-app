@@ -10,7 +10,7 @@ const Home: FC = () => {
 
 	return (
 		<Layout>
-			{isLoading ? <Loader /> : movies?.length && <Carousel movies={movies} />}
+			{isLoading ? <Loader /> : movies?.length ? <Carousel movies={movies} /> : null}
 		</Layout>
 	)
 }
