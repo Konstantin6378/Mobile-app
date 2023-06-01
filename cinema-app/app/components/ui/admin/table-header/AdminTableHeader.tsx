@@ -1,10 +1,28 @@
+import { ISearchFormData } from '@/components/screens/search/search.interface'
 import {FC} from 'react'
+import { Control } from 'react-hook-form'
 import {View, Text} from 'react-native'
+import Field from '../../form-elements/field/Field'
 
-const AdminTableHeader: FC = () => {
+interface IAdminTableHeader  {
+    onPress?: () => void
+    control: Control<ISearchFormData>
+}
+
+const AdminTableHeader: FC<IAdminTableHeader> = ({control,onPress}) => {
   return (
-      <View>
-         <Text>AdminTableHeader</Text>
+      <View className='flex-row items-center justify-between mb-3'>
+        <View style={{
+            width: onPress ? '82%' : '100%'
+        }}>
+            <Field<ISearchFormData>
+                placeholder='Type something...'
+                control={control}
+                name='searchTerm'
+                keyboardType='web-search'
+            />
+            {onPress && <AdminCreateButton onPress={onPress}/>}
+        </View>
       </View>
   )
 }
