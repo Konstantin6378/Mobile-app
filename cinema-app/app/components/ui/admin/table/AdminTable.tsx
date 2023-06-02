@@ -16,7 +16,11 @@ const AdminTable: FC<IAdminTable> = ({
 			<View className='pb-6'>
 				<AdminTableHeader headerItems={headerItems} />
         {isLoading ? <Loader /> : tableItems?.length ? tableItems.map(tableItem => (
-
+          <AdminTableItem 
+            key={tableItem._id}
+            removeHandler={() => removeHandler(tableItem._id)}
+            tableItem={tableItem}
+          />
         )): <Text className='text-white text-lg'>Elements not found</Text>}
 			</View>
 		</ScrollView>
