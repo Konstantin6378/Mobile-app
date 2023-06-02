@@ -1,4 +1,6 @@
 import { useMutation, useQuery } from '@tanstack/react-query'
+import { useMemo } from 'react'
+import { Toast } from 'react-native-toast-message/lib/src/Toast'
 
 import { ITableItem } from '@/components/ui/admin/table/admin-table.interface'
 
@@ -7,8 +9,6 @@ import { useTypedNavigation } from '@/hooks/useTypedNavigation'
 import { UserService } from '@/services/user.service'
 
 import { useSearchForm } from '../../search/useSearchForm'
-import { Toast } from 'react-native-toast-message/lib/src/Toast'
-import { useMemo } from 'react'
 
 export const useUsers = () => {
 	const { control, debouncedSearch } = useSearchForm()
@@ -36,19 +36,23 @@ export const useUsers = () => {
 				)
 		}
 	)
-    const {mutateAsync: deleteAsync } = useMutation(['delete user'], (userId: string) => 
-        UserService.deleteUser(userId), {
-            onSuccess: async () => {
-                Toast.show({
-                    type: 'success',
-                    text1: 'Delete user',
-                    text2: 'delete was successful'
-                })
-                await queryData.refetch()
-            }
-        }
+	const { mutateAsync: deleteAsync } = useMutation(
+		['delete user'],
+		(userId: string) => UserService.deleteUser(userId),
+		{
+			onSuccess: async () => {
+				Toast.show({
+					type: 'success',
+					text1: 'Delete user',
+					text2: 'delete was successful'
+				})
+				await queryData.refetch()
+			}
+		}
+	)
 
-    )
-
-    return useMemo(() => ({...queryData, control, deleteAsync}), [queryData,deleteAsync])
+	return useMemo(
+		() => ({ ...queryData, control, deleteAsync }),
+		[queryData, deleteAsync]
+	)
 }
