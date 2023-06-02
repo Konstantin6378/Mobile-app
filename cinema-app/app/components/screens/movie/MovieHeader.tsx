@@ -31,7 +31,7 @@ const MovieHeader: FC<IMovieComponent> = ({ movie, y }) => {
 				}}
 				className='bg-[#0D0404]'
 			/>
-			<BlurButton icon={'chevron-left'} iconSize={23} onPress={goBack} />
+			<BlurButton  icon={'chevron-left'} iconSize={23}  onPress={goBack} />
 			<Animated.View
 				className='items-center w-2/3'
 				style={{
