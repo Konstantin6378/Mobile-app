@@ -2,6 +2,7 @@ import cn from 'clsx'
 import { FC } from 'react'
 import { Text, View } from 'react-native'
 
+import AdminActions from './AdminActions'
 import { IAdminTableItem } from './admin-table.interface'
 
 const AdminTableItem: FC<IAdminTableItem> = ({ tableItem, removeHandler }) => {
@@ -19,6 +20,10 @@ const AdminTableItem: FC<IAdminTableItem> = ({ tableItem, removeHandler }) => {
 					</Text>
 				</View>
 			))}
+			<AdminActions
+				editNavigate={tableItem.editNavigate}
+				removeHandler={removeHandler}
+			/>
 		</View>
 	)
 }
