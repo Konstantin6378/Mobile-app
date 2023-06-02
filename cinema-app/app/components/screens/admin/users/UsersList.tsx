@@ -1,5 +1,5 @@
 import { AdminNavigation, Layout } from '@/components/ui'
-import AdminTableHeader from '@/components/ui/admin/table-header/AdminTableHeader'
+import AdminTableHeader from '@/components/ui/admin/table-header/AdminHeader'
 import { FC } from 'react'
 import { Text, View } from 'react-native'
 import { useUsers } from './useUsers'
