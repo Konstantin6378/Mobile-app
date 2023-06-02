@@ -1,7 +1,7 @@
 import { Feather } from '@expo/vector-icons'
 import { LinearGradient } from 'expo-linear-gradient'
 import {FC} from 'react'
-import {View, Text, Pressable} from 'react-native'
+import { Pressable} from 'react-native'
 
 const AdminCreateButton: FC<{onPress: () => void}> = ({onPress}) => {
   return (

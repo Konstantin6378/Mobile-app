@@ -25,7 +25,7 @@ const AdminNavigation: FC<IAdminNavigation> = ({ title, isBackButton }) => {
 	const isFocused = useIsFocused()
 
 	useEffect(() => {
-		setIsShow(isFocused)
+		setIsShow(!isFocused)
 	}, [isFocused])
 
 	const translateXAnimation = useAnimatedStyle(() => ({
