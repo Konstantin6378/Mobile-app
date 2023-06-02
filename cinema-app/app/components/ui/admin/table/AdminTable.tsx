@@ -1,11 +1,16 @@
 import {FC} from 'react'
-import {View, Text} from 'react-native'
+import {View, Text, ScrollView} from 'react-native'
+import { IAdminTable } from './admin-table.interface'
 
-const AdminTable: FC = () => {
+const AdminTable: FC<IAdminTable> = ({isLoading, headerItems, removeHandler, tableItems}) => {
   return (
-      <View>
-         <Text>AdminTable</Text>
+     <ScrollView showsHorizontalScrollIndicator={false} horizontal>
+      <View className='pb-6'>
+        <Admo 
+
       </View>
+
+     </ScrollView>
   )
 }
 export default AdminTable
