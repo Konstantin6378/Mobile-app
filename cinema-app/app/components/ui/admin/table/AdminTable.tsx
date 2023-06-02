@@ -4,6 +4,7 @@ import { ScrollView, Text, View } from 'react-native'
 import AdminTableHeader from './AdminTableHeader'
 import { IAdminTable } from './admin-table.interface'
 import Loader from '../../Loader'
+import AdminTableItem from './AdminTableItem'
 
 const AdminTable: FC<IAdminTable> = ({
 	isLoading,
