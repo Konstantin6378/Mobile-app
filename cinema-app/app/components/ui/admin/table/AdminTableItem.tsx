@@ -19,7 +19,6 @@ const AdminTableItem: FC<IAdminTableItem> = ({ tableItem, removeHandler }) => {
 					</Text>
 				</View>
 			))}
-			<Text>AdminTableItem</Text>
 		</View>
 	)
 }
