@@ -6,7 +6,7 @@ const AdminTable: FC<IAdminTable> = ({isLoading, headerItems, removeHandler, tab
   return (
      <ScrollView showsHorizontalScrollIndicator={false} horizontal>
       <View className='pb-6'>
-        <Admo 
+        <AdminTab
 
       </View>
 
