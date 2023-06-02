@@ -10,7 +10,7 @@ const UsersList: FC = () => {
 	const { control, deleteAsync, isLoading, data } = useUsers()
 	return (
 		<Layout isHasPadding>
-			<AdminNavigation title='UserList' />
+			<AdminNavigation title='Users' />
 			<AdminTableHeader control={control} />
 			<AdminTable
 				tableItems={data}
