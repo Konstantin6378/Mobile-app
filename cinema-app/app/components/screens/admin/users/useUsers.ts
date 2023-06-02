@@ -9,8 +9,6 @@ import { UserService } from '@/services/user.service'
 import { useSearchForm } from '../../search/useSearchForm'
 import { Toast } from 'react-native-toast-message/lib/src/Toast'
 import { useMemo } from 'react'
-import { Control } from 'react-hook-form';
-import { deleteItemAsync } from 'expo-secure-store';
 
 export const useUsers = () => {
 	const { control, debouncedSearch } = useSearchForm()
@@ -52,5 +50,5 @@ export const useUsers = () => {
 
     )
 
-    return useMemo(() => ({...queryData, control, deleteItemAsync}), [queryData,deleteAsync])
+    return useMemo(() => ({...queryData, control, deleteAsync}), [queryData,deleteAsync])
 }
