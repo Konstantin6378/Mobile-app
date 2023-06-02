@@ -3,17 +3,21 @@ import { ScrollView, Text, View } from 'react-native'
 
 import AdminTableHeader from './AdminTableHeader'
 import { IAdminTable } from './admin-table.interface'
+import Loader from '../../Loader'
 
 const AdminTable: FC<IAdminTable> = ({
 	isLoading,
-	headerItems = [],
+	headerItems ,
 	removeHandler,
-	tableItems
+	tableItems = []
 }) => {
 	return (
 		<ScrollView showsHorizontalScrollIndicator={false} horizontal>
 			<View className='pb-6'>
 				<AdminTableHeader headerItems={headerItems} />
+        {isLoading ? <Loader /> : tableItems?.length ? tableItems.map(tableItem => (
+
+        )): <Text className='text-white text-lg'>Elements not found</Text>}
 			</View>
 		</ScrollView>
 	)
