@@ -9,7 +9,7 @@ export interface IAdminTableItem  {
 }
 
 export interface IAdminTable  {
-    tableItems: ITableItem[]
+    tableItems?: ITableItem[]
     isLoading: boolean
     headerItems: string[]
     removeHandler: (id: string) => void
