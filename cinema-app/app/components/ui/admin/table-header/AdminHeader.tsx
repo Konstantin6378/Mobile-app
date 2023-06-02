@@ -1,7 +1,7 @@
 import { ISearchFormData } from '@/components/screens/search/search.interface'
 import {FC} from 'react'
 import { Control } from 'react-hook-form'
-import {View, Text} from 'react-native'
+import {View} from 'react-native'
 import Field from '../../form-elements/field/Field'
 import AdminCreateButton from './AdminCreateButton'
 
