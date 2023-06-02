@@ -1,11 +1,26 @@
-import {FC} from 'react'
-import {View, Text} from 'react-native'
+import cn from 'clsx'
+import { FC } from 'react'
+import { Text, View } from 'react-native'
 
-const AdminTableItem: FC = () => {
-  return (
-      <View>
-         <Text>AdminTableItem</Text>
-      </View>
-  )
+import { IAdminTableItem } from './admin-table.interface'
+
+const AdminTableItem: FC<IAdminTableItem> = ({ tableItem, removeHandler }) => {
+	return (
+		<View className='flex-row items-center bg-[#151515] bg-opacity-20 mt-4 px-3 rounded-lg'>
+			{tableItem.items.map((value, index) => (
+				<View
+					className={cn('py-3 w-32 mx-2', {
+						'justify-end': index === tableItem.items.length - 1
+					})}
+					key={value}
+				>
+					<Text className='text-white text-base' numberOfLines={1}>
+						{value}
+					</Text>
+				</View>
+			))}
+			<Text>AdminTableItem</Text>
+		</View>
+	)
 }
 export default AdminTableItem
