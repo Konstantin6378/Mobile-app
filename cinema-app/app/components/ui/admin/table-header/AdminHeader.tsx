@@ -8,12 +8,12 @@ import Field from '../../form-elements/field/Field'
 
 import AdminCreateButton from './AdminCreateButton'
 
-interface IAdminTableHeader {
+interface IAdminHeader {
 	onPress?: () => void
 	control: Control<ISearchFormData>
 }
 
-const AdminTableHeader: FC<IAdminTableHeader> = ({ control, onPress }) => {
+const AdminHeader: FC<IAdminHeader> = ({ control, onPress }) => {
 	return (
 		<View className='flex-row items-center justify-between mb-3'>
 			<View
@@ -27,9 +27,11 @@ const AdminTableHeader: FC<IAdminTableHeader> = ({ control, onPress }) => {
 					name='searchTerm'
 					keyboardType='web-search'
 				/>
-				{onPress && <AdminCreateButton onPress={onPress} />}
 			</View>
+
+			{onPress && <AdminCreateButton onPress={onPress} />}
 		</View>
 	)
 }
-export default AdminTableHeader
+
+export default AdminHeader
