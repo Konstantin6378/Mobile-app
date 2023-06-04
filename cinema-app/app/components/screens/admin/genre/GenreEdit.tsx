@@ -1,4 +1,4 @@
-import { AdminNavigation, Layout, Loader } from '@/components/ui'
+import { AdminNavigation, Layout, Loader, Button } from '@/components/ui';
 import { useGenreEdit } from '@/components/screens/admin/genre/useGenreEdit'
 import { IGenreEditInput } from '@/shared/types/genre.interface'
 import { FC } from 'react'
@@ -16,7 +16,11 @@ const GenreEdit: FC = () => {
 		<Layout isHasPadding>
 			<AdminNavigation title='Edit genre' isBackButton />
 			<View>
-				{isLoading ? <Loader/> : <></>}
+				{isLoading ? <Loader/> : <>
+				<Button onPress={handleSubmit(onSubmit)} icon='pen-tool'>
+					Update
+				</Button>
+				</>}
 			</View>
 		</Layout>
 	)
