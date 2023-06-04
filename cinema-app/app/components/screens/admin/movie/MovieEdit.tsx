@@ -1,11 +1,24 @@
+import { AdminNavigation, Layout, Loader } from '@/components/ui'
+import { useActorEdit } from '@/components/screens/admin/actor/useActorEdit'
+import { IActorEditInput } from '@/shared/types/actor.interface'
 import { FC } from 'react'
-import { Text, View } from 'react-native'
+import { useForm } from 'react-hook-form'
+import {  View } from 'react-native'
 
-const MovieEdit: FC = () => {
+const ACtorEdit: FC = () => {
+	const {control, setValue, handleSubmit} = useForm<IActorEditInput>({
+		mode: 'onChange'
+	})
+
+	const {isLoading, onSubmit} = useActorEdit(setValue)
+
 	return (
-		<View>
-			<Text>MovieEdit</Text>
-		</View>
+		<Layout isHasPadding>
+			<AdminNavigation title='Edit actor' isBackButton />
+			<View>
+				{isLoading ? <Loader/> : <></>}
+			</View>
+		</Layout>
 	)
 }
-export default MovieEdit
+export default ACtorEdit
