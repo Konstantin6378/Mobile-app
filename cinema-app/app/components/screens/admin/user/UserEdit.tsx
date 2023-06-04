@@ -9,6 +9,7 @@ import { IAuthFormData } from '@/shared/types/auth.interface'
 import { IUserEditInput } from '@/shared/types/user.interface'
 
 import AuthFields from '../../auth/AuthFields'
+import CheckBox from '@react-native-community/checkbox'
 
 const UserEdit: FC = () => {
 	const { control, setValue, handleSubmit } = useForm<IUserEditInput>({
@@ -34,11 +35,15 @@ const UserEdit: FC = () => {
 							render={({ field: { onChange, value } }) => (
 								<Pressable
 									onPress={() => onChange(!value)}
-									className='my-5 w-40'
+									className='my-5 w-40 flex-row items-center'
 								>
-									<CheckBox />
+									<CheckBox 
+										value={value}
+										onValueChange={onChange}
+										style={{alignSelf: 'center'}}
+									/>
 									<Text className='underline text-white text-base'>
-										{value ? 'Make it regular user' : 'Make it admin'}
+										Admin rights
 									</Text>
 								</Pressable>
 							)}
