@@ -1,4 +1,4 @@
-import { AdminNavigation, Layout } from '@/components/ui'
+import { AdminNavigation, Layout, Loader } from '@/components/ui'
 import { useUserEdit } from '@/hooks/useUserEdit'
 import { IUserEditInput } from '@/shared/types/user.interface'
 import { FC } from 'react'
@@ -15,6 +15,9 @@ const UserEdit: FC = () => {
 	return (
 		<Layout isHasPadding>
 			<AdminNavigation title='Edit user' isBackButton />
+			<View>
+				{isLoading ? <Loader/> : <></>}
+			</View>
 		</Layout>
 	)
 }
