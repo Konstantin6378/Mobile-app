@@ -6,7 +6,7 @@ import { ITableItem } from '@/components/ui/admin/table/admin-table.interface'
 
 import { useTypedNavigation } from '@/hooks/useTypedNavigation'
 
-import {MovieService } from '@/services/movie.service'
+import {ActorService } from '@/services/actor.service'
 
 import { useSearchForm } from '../../search/useSearchForm'
 
@@ -16,50 +16,50 @@ export const useUsers = () => {
 	const { navigate } = useTypedNavigation()
 
 	const queryData = useQuery(
-		['search movies', debouncedSearch],
-		() =>MovieService.getAll(debouncedSearch),
+		['search actors', debouncedSearch],
+		() =>ActorService.getAll(debouncedSearch),
 		{
 			select: data =>
 				data.map(
-					(movie): ITableItem => ({
-						_id: movie._id,
+					(actor): ITableItem => ({
+						_id: actor._id,
 						editNavigate: () =>
 							navigate('UserEdit', {
-								id: movie._id
+								id: actor._id
 							}),
 						items: [
-							movie.title,
-                            `${movie.genres[0].name} ${movie.genres.length > 1 ? '...' : ''}`,
-                            String(movie.rating)
+							actor.title,
+                            `${actor.genres[0].name} ${actor.genres.length > 1 ? '...' : ''}`,
+                            String(actor.rating)
                         ]
 					})
 				)
 		}
 	)
 	const { mutateAsync: createAsync } = useMutation(
-		['create movie'],
-		() =>MovieService.create(),
+		['create actor'],
+		() =>ActorService.create(),
 		{
 			onSuccess: async (_id) => {
 				Toast.show({
 					type: 'success',
-					text1: 'Delete movie',
+					text1: 'Delete actor',
 					text2: 'delete was successful'
 				})
-				navigate('MovieEdit', {
+				navigate('ActorEdit', {
                     id: _id
                 })
 			}
 		}
 	)
 	const { mutateAsync: deleteAsync } = useMutation(
-		['delete movie'],
-		(movieId: string) =>MovieService.delete(movieId),
+		['delete actor'],
+		(actorId: string) =>ActorService.delete(actorId),
 		{
 			onSuccess: async () => {
 				Toast.show({
 					type: 'success',
-					text1: 'Delete movie',
+					text1: 'Delete actor',
 					text2: 'delete was successful'
 				})
 				await queryData.refetch()
