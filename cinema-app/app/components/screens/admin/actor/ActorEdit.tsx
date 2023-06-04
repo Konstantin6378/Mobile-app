@@ -5,7 +5,7 @@ import { FC } from 'react'
 import { useForm } from 'react-hook-form'
 import {  View } from 'react-native'
 
-const ACtorEdit: FC = () => {
+const ActorEdit: FC = () => {
 	const {control, setValue, handleSubmit} = useForm<IActorEditInput>({
 		mode: 'onChange'
 	})
