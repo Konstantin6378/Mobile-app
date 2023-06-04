@@ -1,3 +1,4 @@
+import { AdminNavigation, Layout } from '@/components/ui'
 import { useUserEdit } from '@/hooks/useUserEdit'
 import { IUserEditInput } from '@/shared/types/user.interface'
 import { FC } from 'react'
@@ -12,9 +13,9 @@ const UserEdit: FC = () => {
 	const {isLoading, onSubmit} = useUserEdit(setValue)
 
 	return (
-		<View>
-			<Text>UserEdit</Text>
-		</View>
+		<Layout isHasPadding>
+			<AdminNavigation title='Edit user' isBackButton />
+		</Layout>
 	)
 }
 export default UserEdit
