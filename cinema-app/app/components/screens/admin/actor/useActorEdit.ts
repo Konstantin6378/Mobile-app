@@ -1,37 +1,37 @@
-import { IUserEditInput } from "@/shared/types/user.interface";
+import { IActorEditInput } from "@/shared/types/actor.interface";
 import { SubmitHandler, UseFormSetValue } from "react-hook-form";
 import { useTypedRoute } from "@/hooks/useTypedRoute";
 import { useMutation, useQuery, QueryClient, useQueryClient } from '@tanstack/react-query';
-import { UserService } from "@/services/user.service";
+import { ActorService } from "@/services/actor.service";
 import { Toast } from "react-native-toast-message/lib/src/Toast";
 
-export const useUserEdit = (setValue: UseFormSetValue<IUserEditInput>) => {
-    const {params} = useTypedRoute<'UserEdit'>()
-    const userId= params.id
+export const useActorEdit = (setValue: UseFormSetValue<IActorEditInput>) => {
+    const {params} = useTypedRoute<'ActorEdit'>()
+    const actorId= params.id
 
-    const {isLoading} = useQuery(['get user', userId], () => UserService.getById(userId), {
+    const {isLoading} = useQuery(['get actor', actorId], () => ActorService.getById(actorId), {
         onSuccess(data){
             setValue('email', data.email)
             setValue('isAdmin', data.isAdmin)
         },
-        enabled: !!userId
+        enabled: !!actorId
     })
 
     const {invalidateQueries} = useQueryClient()
 
-    const {mutateAsync} = useMutation(['update user'], (data:IUserEditInput) => UserService.update(userId, data), 
+    const {mutateAsync} = useMutation(['update actor'], (data:IActorEditInput) => ActorService.update(actorId, data), 
     {
         async onSuccess() {
             Toast.show({
                 type: 'success',
-                text1: 'Updated user',
+                text1: 'Updated actor',
                 text2: 'update was successful'
             })
 
-            await invalidateQueries(['search users'])
+            await invalidateQueries(['search actors'])
         }
     })
-    const onSubmit: SubmitHandler<IUserEditInput> = async data => {
+    const onSubmit: SubmitHandler<IActorEditInput> = async data => {
         await mutateAsync(data)
     }
     return{onSubmit, isLoading}
