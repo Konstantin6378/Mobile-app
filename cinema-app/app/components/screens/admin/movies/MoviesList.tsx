@@ -15,7 +15,7 @@ const MoviesList: FC = () => {
 			<AdminTable
 				tableItems={data}
 				isLoading={isLoading}
-				headerItems={['Email', 'Date register']}
+				headerItems={['Title', 'Main genre', 'Rating']}
 				removeHandler={deleteAsync}
 			/>
 		</Layout>
