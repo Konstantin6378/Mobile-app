@@ -21,4 +21,4 @@ const ActorEdit: FC = () => {
 		</Layout>
 	)
 }
-export default ACtorEdit
+export default ActorEdit
