@@ -1,2 +1,2 @@
-export const getKey = <T extends Object>(obj: T) =>
+export const getKeys = <T extends Object>(obj: T) =>
 	Object.keys(obj) as Array<keyof T>
