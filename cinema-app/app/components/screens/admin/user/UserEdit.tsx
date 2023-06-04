@@ -1,3 +1,4 @@
+import Checkbox from 'expo-checkbox'
 import { FC } from 'react'
 import { Control, Controller, useForm } from 'react-hook-form'
 import { Pressable, Text, View } from 'react-native'
@@ -9,7 +10,6 @@ import { IAuthFormData } from '@/shared/types/auth.interface'
 import { IUserEditInput } from '@/shared/types/user.interface'
 
 import AuthFields from '../../auth/AuthFields'
-import Checkbox from 'expo-checkbox'
 
 const UserEdit: FC = () => {
 	const { control, setValue, handleSubmit } = useForm<IUserEditInput>({
@@ -37,10 +37,10 @@ const UserEdit: FC = () => {
 									onPress={() => onChange(!value)}
 									className='my-5 w-40 flex-row items-center'
 								>
-									<Checkbox 
+									<Checkbox
 										value={value}
 										onValueChange={onChange}
-										style={{alignSelf: 'center'}}
+										style={{ alignSelf: 'center', marginRight: 10 }}
 									/>
 									<Text className='underline text-white text-base'>
 										Admin rights
