@@ -13,6 +13,7 @@ import { IMovieEditInput } from "@/shared/types/movie.interface";
 
 
 import { MovieService } from "@/services/movie.service";
+import { getKeys } from '@/utils/getKeys';
 
 
 export const useMovieEdit = (setValue: UseFormSetValue<IMovieEditInput>) => {
@@ -24,9 +25,11 @@ export const useMovieEdit = (setValue: UseFormSetValue<IMovieEditInput>) => {
 			() => MovieService.getById(movieId),
 			{
 				onSuccess(data) {
-					setValue('email', data.email)
-					setValue('isAdmin', data.isAdmin)
-				},
+                    // Object.entries<string>(data).find(([key, value]) => {})
+                    getKeys(data).forEach(key => {
+                        setValue(key, data[key])
+                    })
+                },
 				enabled: !!movieId
 			}
 		)
