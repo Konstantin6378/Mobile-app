@@ -68,7 +68,7 @@ export const useUsers = () => {
 	)
 
 	return useMemo(
-		() => ({ ...queryData, control, deleteAsync }),
-		[queryData, deleteAsync]
+		() => ({ ...queryData, control, deleteAsync, createAsync }),
+		[queryData, deleteAsync, createAsync]
 	)
 }
