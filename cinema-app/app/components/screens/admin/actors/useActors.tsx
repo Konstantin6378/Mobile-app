@@ -1,14 +1,23 @@
-import { useMutation, useQuery } from '@tanstack/react-query'
-import { useMemo } from 'react'
-import { Toast } from 'react-native-toast-message/lib/src/Toast'
+import { useMutation, useQuery } from '@tanstack/react-query';
+import { useMemo } from 'react';
+import { Toast } from 'react-native-toast-message/lib/src/Toast';
 
-import { ITableItem } from '@/components/ui/admin/table/admin-table.interface'
 
-import { useTypedNavigation } from '@/hooks/useTypedNavigation'
 
-import {ActorService } from '@/services/actor.service'
+import { ITableItem } from '@/components/ui/admin/table/admin-table.interface';
 
-import { useSearchForm } from '../../search/useSearchForm'
+
+
+import { useTypedNavigation } from '@/hooks/useTypedNavigation';
+
+
+
+import { ActorService } from '@/services/actor.service';
+
+
+
+import { useSearchForm } from '../../search/useSearchForm';
+
 
 export const useUsers = () => {
 	const { control, debouncedSearch } = useSearchForm()
@@ -17,7 +26,7 @@ export const useUsers = () => {
 
 	const queryData = useQuery(
 		['search actors', debouncedSearch],
-		() =>ActorService.getAll(debouncedSearch),
+		() => ActorService.getAll(debouncedSearch),
 		{
 			select: data =>
 				data.map(
@@ -28,10 +37,9 @@ export const useUsers = () => {
 								id: actor._id
 							}),
 						items: [
-							actor.title,
-                            `${actor.genres[0].name} ${actor.genres.length > 1 ? '...' : ''}`,
-                            String(actor.rating)
-                        ]
+							actor.name, 
+              String(actor.countMovies)
+						]
 					})
 				)
 		}
