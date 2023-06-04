@@ -4,15 +4,18 @@ import { useTypedRoute } from "@/hooks/useTypedRoute";
 import { useMutation, useQuery, QueryClient, useQueryClient } from '@tanstack/react-query';
 import { ActorService } from "@/services/actor.service";
 import { Toast } from "react-native-toast-message/lib/src/Toast";
+import { getKeys } from "@/utils/getKeys";
 
 export const useActorEdit = (setValue: UseFormSetValue<IActorEditInput>) => {
     const {params} = useTypedRoute<'ActorEdit'>()
     const actorId= params.id
 
     const {isLoading} = useQuery(['get actor', actorId], () => ActorService.getById(actorId), {
-        onSuccess(data){
-            setValue('email', data.email)
-            setValue('isAdmin', data.isAdmin)
+        onSuccess(data) {
+            // Object.entries<string>(data).find(([key, value]) => {})
+            getKeys(data).forEach(key => {
+                setValue(key, data[key])
+            })
         },
         enabled: !!actorId
     })
