@@ -7,11 +7,11 @@ import AdminTable from '@/components/ui/admin/table/AdminTable'
 import { useGenres } from './useGenres'
 
 const GenresList: FC = () => {
-	const { control, deleteAsync, isLoading, data } = useGenres()
+	const { control, deleteAsync, isLoading, data, createAsync } = useGenres()
 	return (
 		<Layout isHasPadding>
 			<AdminNavigation title='Genres' />
-			<AdminTableHeader control={control} />
+			<AdminTableHeader control={control} onPress={createAsync}/>
 			<AdminTable
 				tableItems={data}
 				isLoading={isLoading}
