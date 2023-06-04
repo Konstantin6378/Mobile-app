@@ -15,7 +15,7 @@ const GenresList: FC = () => {
 			<AdminTable
 				tableItems={data}
 				isLoading={isLoading}
-				headerItems={['Title', 'Main genre', 'Rating']}
+				headerItems={['Name',  'Slug']}
 				removeHandler={deleteAsync}
 			/>
 		</Layout>
