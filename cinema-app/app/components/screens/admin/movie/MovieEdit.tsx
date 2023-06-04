@@ -1,4 +1,4 @@
-import { AdminNavigation, Layout, Loader } from '@/components/ui'
+import { AdminNavigation, Button, Layout, Loader } from '@/components/ui'
 import { useMovieEdit } from '@/components/screens/admin/movie/useMovieEdit'
 import { IMovieEditInput } from '@/shared/types/movie.interface'
 import { FC } from 'react'
@@ -16,7 +16,11 @@ const MovieEdit: FC = () => {
 		<Layout isHasPadding>
 			<AdminNavigation title='Edit movie' isBackButton />
 			<View>
-				{isLoading ? <Loader/> : <></>}
+				{isLoading ? <Loader/> : <>
+				<Button onPress={handleSubmit(onSubmit)} icon='pen-tool'>
+					Update
+				</Button>
+				</>}
 			</View>
 		</Layout>
 	)
