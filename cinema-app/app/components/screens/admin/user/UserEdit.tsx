@@ -1,4 +1,4 @@
-import { AdminNavigation, Layout, Loader } from '@/components/ui'
+import { AdminNavigation, Button, Layout, Loader } from '@/components/ui'
 import { useUserEdit } from '@/components/screens/admin/user/useUserEdit'
 import { IUserEditInput } from '@/shared/types/user.interface'
 import { FC } from 'react'
@@ -20,6 +20,10 @@ const UserEdit: FC = () => {
 			<View>
 				{isLoading ? <Loader/> : <>
 				<AuthFields control={control as unknown as Control<IAuthFormData>} />
+
+				<Button onPress={handleSubmit(onSubmit)} icon='pen-tool'>
+					Update
+				</Button>
 				</>}
 			</View>
 		</Layout>
