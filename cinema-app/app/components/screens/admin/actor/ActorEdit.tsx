@@ -1,4 +1,4 @@
-import { AdminNavigation, Layout, Loader } from '@/components/ui'
+import { AdminNavigation, Button, Layout, Loader } from '@/components/ui'
 import { useActorEdit } from '@/components/screens/admin/actor/useActorEdit'
 import { IActorEditInput } from '@/shared/types/actor.interface'
 import { FC } from 'react'
@@ -16,7 +16,11 @@ const ActorEdit: FC = () => {
 		<Layout isHasPadding>
 			<AdminNavigation title='Edit actor' isBackButton />
 			<View>
-				{isLoading ? <Loader/> : <></>}
+				{isLoading ? <Loader/> : <>
+				<Button onPress={handleSubmit(onSubmit)} icon='pen-tool'>
+					Update
+				</Button>
+				</>}
 			</View>
 		</Layout>
 	)
