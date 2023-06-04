@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import {  View } from 'react-native'
+import { View } from 'react-native'
 
 import { Field, Heading, Layout, Loader, MovieCatalog } from '@/components/ui'
 
@@ -8,9 +8,10 @@ import { useSearch } from './useSearch'
 
 const Search: FC = () => {
 	const { searchTerm, movies, isLoading, control } = useSearch()
+
 	return (
 		<Layout isHasPadding>
-			<Heading title={'Search'} />
+			<Heading title='Search' />
 			<View className='mt-3'>
 				<Field<ISearchFormData>
 					placeholder='Type something...'
@@ -27,4 +28,5 @@ const Search: FC = () => {
 		</Layout>
 	)
 }
+
 export default Search
