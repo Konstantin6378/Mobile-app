@@ -1,7 +1,7 @@
 import { IUserEditInput } from "@/shared/types/user.interface";
 import { UseFormSetValue } from "react-hook-form";
 import { useTypedRoute } from "./useTypedRoute";
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import { UserService } from "@/services/user.service";
 
 export const useUserEdit = (setValue: UseFormSetValue<IUserEditInput>) => {
@@ -12,6 +12,9 @@ export const useUserEdit = (setValue: UseFormSetValue<IUserEditInput>) => {
         onSuccess(data){
             setValue('email', data.email)
             setValue('isAdmin', data.isAdmin)
-        }
+        },
+        enabled: !!userId
     })
+
+    const {} = useMutation(['update user'], (data:IUserEditInput) => UserService.update())
 }
