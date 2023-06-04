@@ -19,7 +19,7 @@ import { ActorService } from '@/services/actor.service';
 import { useSearchForm } from '../../search/useSearchForm';
 
 
-export const useUsers = () => {
+export const useActors = () => {
 	const { control, debouncedSearch } = useSearchForm()
 
 	const { navigate } = useTypedNavigation()
@@ -33,7 +33,7 @@ export const useUsers = () => {
 					(actor): ITableItem => ({
 						_id: actor._id,
 						editNavigate: () =>
-							navigate('UserEdit', {
+							navigate('ActorEdit', {
 								id: actor._id
 							}),
 						items: [
