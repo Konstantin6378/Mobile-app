@@ -1,6 +1,6 @@
 import { IUserEditInput } from "@/shared/types/user.interface";
 import { SubmitHandler, UseFormSetValue } from "react-hook-form";
-import { useTypedRoute } from "./useTypedRoute";
+import { useTypedRoute } from "@/hooks/useTypedRoute";
 import { useMutation, useQuery, QueryClient, useQueryClient } from '@tanstack/react-query';
 import { UserService } from "@/services/user.service";
 import { Toast } from "react-native-toast-message/lib/src/Toast";
