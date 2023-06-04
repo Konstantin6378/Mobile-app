@@ -1,11 +1,24 @@
+import { AdminNavigation, Layout, Loader } from '@/components/ui'
+import { useGenreEdit } from '@/components/screens/admin/genre/useGenreEdit'
+import { IGenreEditInput } from '@/shared/types/genre.interface'
 import { FC } from 'react'
-import { Text, View } from 'react-native'
+import { useForm } from 'react-hook-form'
+import {  View } from 'react-native'
 
 const GenreEdit: FC = () => {
+	const {control, setValue, handleSubmit} = useForm<IGenreEditInput>({
+		mode: 'onChange'
+	})
+
+	const {isLoading, onSubmit} = useGenreEdit(setValue)
+
 	return (
-		<View>
-			<Text>GenreEdit</Text>
-		</View>
+		<Layout isHasPadding>
+			<AdminNavigation title='Edit genre' isBackButton />
+			<View>
+				{isLoading ? <Loader/> : <></>}
+			</View>
+		</Layout>
 	)
 }
 export default GenreEdit
