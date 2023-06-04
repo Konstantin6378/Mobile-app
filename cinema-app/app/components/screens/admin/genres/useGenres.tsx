@@ -6,7 +6,7 @@ import { ITableItem } from '@/components/ui/admin/table/admin-table.interface'
 
 import { useTypedNavigation } from '@/hooks/useTypedNavigation'
 
-import {GenreService } from '@/services/genre.service'
+import { GenreService } from '@/services/genre.service'
 
 import { useSearchForm } from '../../search/useSearchForm'
 
@@ -17,7 +17,7 @@ export const useUsers = () => {
 
 	const queryData = useQuery(
 		['search genres', debouncedSearch],
-		() =>GenreService.getAll(debouncedSearch),
+		() => GenreService.getAll(debouncedSearch),
 		{
 			select: data =>
 				data.map(
@@ -28,33 +28,32 @@ export const useUsers = () => {
 								id: genre._id
 							}),
 						items: [
-							genre.title,
-                            `${genre.genres[0].name} ${genre.genres.length > 1 ? '...' : ''}`,
-                            String(genre.rating)
-                        ]
+							genre.name,
+							genre.slug
+						]
 					})
 				)
 		}
 	)
 	const { mutateAsync: createAsync } = useMutation(
 		['create genre'],
-		() =>GenreService.create(),
+		() => GenreService.create(),
 		{
-			onSuccess: async (_id) => {
+			onSuccess: async _id => {
 				Toast.show({
 					type: 'success',
 					text1: 'Delete genre',
 					text2: 'delete was successful'
 				})
 				navigate('GenreEdit', {
-                    id: _id
-                })
+					id: _id
+				})
 			}
 		}
 	)
 	const { mutateAsync: deleteAsync } = useMutation(
 		['delete genre'],
-		(genreId: string) =>GenreService.delete(genreId),
+		(genreId: string) => GenreService.delete(genreId),
 		{
 			onSuccess: async () => {
 				Toast.show({
