@@ -13,7 +13,7 @@ interface IAdminHeader {
 	control: Control<ISearchFormData>
 }
 
-const AdminHeader: FC<IAdminHeader> = ({ control, onPress }) => {
+const AdminTableHeader: FC<IAdminHeader> = ({ control, onPress }) => {
 	return (
 		<View className='flex-row items-center justify-between mb-3'>
 			<View
@@ -28,10 +28,8 @@ const AdminHeader: FC<IAdminHeader> = ({ control, onPress }) => {
 					keyboardType='web-search'
 				/>
 			</View>
-
 			{onPress && <AdminCreateButton onPress={onPress} />}
 		</View>
 	)
 }
-
-export default AdminHeader
+export default AdminTableHeader
