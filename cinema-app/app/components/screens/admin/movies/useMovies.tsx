@@ -10,7 +10,7 @@ import {MovieService } from '@/services/movie.service'
 
 import { useSearchForm } from '../../search/useSearchForm'
 
-export const useUsers = () => {
+export const useMovies = () => {
 	const { control, debouncedSearch } = useSearchForm()
 
 	const { navigate } = useTypedNavigation()
@@ -24,7 +24,7 @@ export const useUsers = () => {
 					(movie): ITableItem => ({
 						_id: movie._id,
 						editNavigate: () =>
-							navigate('UserEdit', {
+							navigate('MovieEdit', {
 								id: movie._id
 							}),
 						items: [
