@@ -7,11 +7,11 @@ import AdminTable from '@/components/ui/admin/table/AdminTable'
 import { useMovies } from './useMovies'
 
 const MoviesList: FC = () => {
-	const { control, deleteAsync, isLoading, data } = useMovies()
+	const { control, deleteAsync, isLoading, data, createAsync } = useMovies()
 	return (
 		<Layout isHasPadding>
 			<AdminNavigation title='Movies' />
-			<AdminTableHeader control={control} />
+			<AdminTableHeader control={control} onPress={createAsync} />
 			<AdminTable
 				tableItems={data}
 				isLoading={isLoading}
