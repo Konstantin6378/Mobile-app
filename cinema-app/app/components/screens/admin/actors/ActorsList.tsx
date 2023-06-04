@@ -7,11 +7,11 @@ import AdminTable from '@/components/ui/admin/table/AdminTable'
 import { useActors } from './useActors'
 
 const ActorsList: FC = () => {
-	const { control, deleteAsync, isLoading, data } = useActors()
+	const { control, deleteAsync, isLoading, data, createAsync } = useActors()
 	return (
 		<Layout isHasPadding>
 			<AdminNavigation title='Actors' />
-			<AdminTableHeader control={control} />
+			<AdminTableHeader control={control} onPress={createAsync}/>
 			<AdminTable
 				tableItems={data}
 				isLoading={isLoading}
