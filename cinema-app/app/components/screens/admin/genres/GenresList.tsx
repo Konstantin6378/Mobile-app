@@ -4,13 +4,13 @@ import { AdminNavigation, Layout } from '@/components/ui'
 import AdminTableHeader from '@/components/ui/admin/table-header/AdminHeader'
 import AdminTable from '@/components/ui/admin/table/AdminTable'
 
-import { useMovies } from './useMovies'
+import { useGenres } from './useGenres'
 
-const MoviesList: FC = () => {
-	const { control, deleteAsync, isLoading, data } = useMovies()
+const GenresList: FC = () => {
+	const { control, deleteAsync, isLoading, data } = useGenres()
 	return (
 		<Layout isHasPadding>
-			<AdminNavigation title='Movies' />
+			<AdminNavigation title='Genres' />
 			<AdminTableHeader control={control} />
 			<AdminTable
 				tableItems={data}
@@ -21,4 +21,4 @@ const MoviesList: FC = () => {
 		</Layout>
 	)
 }
-export default MoviesList
+export default GenresList
