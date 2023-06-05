@@ -31,6 +31,7 @@ const TextEditor: FC<ITextEditor> = ({
                         backgroundColor: 'rgba(34,34,34,.5)',
                         color: 'white'
                      }}
+                     initialContentHTML={value}
 				/>
 				<RichToolbar editor={richEditor} />
 			</View>
