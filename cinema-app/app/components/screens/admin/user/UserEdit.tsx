@@ -10,6 +10,7 @@ import { IAuthFormData } from '@/shared/types/auth.interface'
 import { IUserEditInput } from '@/shared/types/user.interface'
 
 import AuthFields from '../../auth/AuthFields'
+import { getColor } from '@/config/colors.config'
 
 const UserEdit: FC = () => {
 	const { control, setValue, handleSubmit } = useForm<IUserEditInput>({
@@ -40,7 +41,7 @@ const UserEdit: FC = () => {
 									<Checkbox
 										value={value}
 										onValueChange={onChange}
-										style={{ alignSelf: 'center' }}
+										color={value ? getColor('primary') : undefined}
 									/>
 									<Text className='underline text-white text-base ml-2.5'>
 										Admin rights
