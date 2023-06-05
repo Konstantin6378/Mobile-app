@@ -1,6 +1,8 @@
+import { Feather } from '@expo/vector-icons'
 import cn from 'clsx'
+import { LinearGradient } from 'expo-linear-gradient'
 import { FC } from 'react'
-import { Image, Text, View } from 'react-native'
+import { Image, Pressable, Text, View } from 'react-native'
 
 import { getMediaSource } from '@/utils/getMediaSource'
 
@@ -30,7 +32,24 @@ const UploadField: FC<IUploadField> = ({
 			style={style}
 		>
 			<View className='flex-row justify-between items-center'>
-				<View></View>
+				<View className='flex-row justify-between items-center'>
+					<View>
+						<Text className='font-medium to-white text-base'>
+							{placeholder}
+						</Text>
+						<Pressable className='mt-2.5' onPress={uploadFile}>
+							<LinearGradient
+                                start={{x: 0, y: 0.75}}
+                                end={{x:1, y: 0.25}}
+                                className='w-full py-1.5 px-3 rounded-xl items-center flex-row'
+                                colors={gradient}
+                            >
+								<Feather name='upload' size={18} color='#fff'/>
+								<Text className='text-white text-base ml-2'>Click for upload file</Text>
+							</LinearGradient>
+						</Pressable>
+					</View>
+				</View>
 				{!isNoImage && (
 					<View className='w-24 h-24 rounded-2xl overflow-hidden ml-5'>
 						{isLoading ? (
