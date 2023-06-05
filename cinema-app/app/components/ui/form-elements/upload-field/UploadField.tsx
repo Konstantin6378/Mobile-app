@@ -34,7 +34,7 @@ const UploadField: FC<IUploadField> = ({
 			<View className='flex-row justify-between items-center'>
 				<View className='flex-row justify-between items-center'>
 					<View>
-						<Text className='font-medium to-white text-base'>
+						<Text className='font-medium text-white text-base'>
 							{placeholder}
 						</Text>
 						<Pressable className='mt-2.5' onPress={uploadFile}>
