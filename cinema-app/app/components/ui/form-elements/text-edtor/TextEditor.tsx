@@ -1,7 +1,7 @@
 import cn from 'clsx'
 import { FC, useRef } from 'react'
 import { Text, View } from 'react-native'
-import { RichEditor } from 'react-native-pell-rich-editor'
+import { RichEditor, RichToolbar } from 'react-native-pell-rich-editor'
 
 import { ITextEditor } from './text-editor.interface'
 
@@ -21,8 +21,20 @@ const TextEditor: FC<ITextEditor> = ({
 						'border-red': !!error
 					}
 				)}
-			></View>
-            {error && <Text className='text-red'>{error.message}</Text>}
+			>
+				<RichEditor
+					ref={richEditor}
+					onChange={onChange}
+					placeholder={placeholder}
+					initialHeight={200}
+					editorStyle={{ 
+                        backgroundColor: 'rgba(34,34,34,.5)',
+                        color: 'white'
+                     }}
+				/>
+				<RichToolbar editor={richEditor} />
+			</View>
+			{error && <Text className='text-red'>{error.message}</Text>}
 		</View>
 	)
 }
