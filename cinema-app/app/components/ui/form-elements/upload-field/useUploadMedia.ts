@@ -33,7 +33,7 @@ export const useUploadMedia: TypeUploadMedia = (onChange, folder) => {
 			return
 		}
 
-		const localUri = result.uri
+		const localUri = result.assets[0].uri
 		const filename = localUri.split('/').pop() || ''
 
 		const match = /\.(\w+)$/.exec(filename)
