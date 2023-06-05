@@ -13,4 +13,6 @@ export const useUploadMedia:TypeUploadMedia = (onChange, folder)  => {
             onChange(data[0].url)
         }
     })
+
+    
 }
