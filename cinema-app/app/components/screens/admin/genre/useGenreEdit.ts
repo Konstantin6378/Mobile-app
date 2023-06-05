@@ -1,4 +1,4 @@
-import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
+import { useMutation, useQuery, useQueryClient, QueryClient } from '@tanstack/react-query';
 import { SubmitHandler, UseFormSetValue } from 'react-hook-form'
 import { Toast } from 'react-native-toast-message/lib/src/Toast'
 
@@ -28,7 +28,7 @@ export const useGenreEdit = (setValue: UseFormSetValue<IGenreEditInput>) => {
 		}
 	)
 
-	const { invalidateQueries } = useQueryClient()
+	const queryClient = useQueryClient()
 
 	const { mutateAsync } = useMutation(
 		['update genre'],
@@ -41,7 +41,7 @@ export const useGenreEdit = (setValue: UseFormSetValue<IGenreEditInput>) => {
 					text2: 'update was successful'
 				})
 
-				await invalidateQueries(['search genres'])
+				await queryClient.invalidateQueries(['search genres'])
 			}
 		}
 	)
