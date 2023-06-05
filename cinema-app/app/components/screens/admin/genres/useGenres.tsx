@@ -42,8 +42,8 @@ export const useGenres = () => {
 			onSuccess: async _id => {
 				Toast.show({
 					type: 'success',
-					text1: 'Delete genre',
-					text2: 'delete was successful'
+					text1: 'Update genre',
+					text2: 'update was successful'
 				})
 				navigate('GenreEdit', {
 					id: _id
