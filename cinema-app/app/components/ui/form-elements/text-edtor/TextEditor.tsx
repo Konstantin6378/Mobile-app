@@ -46,6 +46,8 @@ const TextEditor: FC<ITextEditor> = ({
                     style={{
                         backgroundColor: '#222'
                     }}
+                    iconTint='white'
+                    selectedIconTint='#1DA64F'
 				/>
 			</View>
 			{error && <Text className='text-red'>{error.message}</Text>}
