@@ -39,15 +39,21 @@ const UploadField: FC<IUploadField> = ({
 						</Text>
 						<Pressable className='mt-2.5' onPress={uploadFile}>
 							<LinearGradient
-                                start={{x: 0, y: 0.75}}
-                                end={{x:1, y: 0.25}}
-                                className='w-full py-1.5 px-3 rounded-xl items-center flex-row'
-                                colors={gradient}
-                            >
-								<Feather name='upload' size={18} color='#fff'/>
-								<Text className='text-white text-base ml-2'>Click for upload file</Text>
+								start={{ x: 0, y: 0.75 }}
+								end={{ x: 1, y: 0.25 }}
+								className='w-full py-1.5 px-3 rounded-xl items-center flex-row'
+								colors={gradient}
+							>
+								<Feather name='upload' size={18} color='#fff' />
+								<Text className='text-white text-base ml-2'>
+									Click for upload file
+								</Text>
 							</LinearGradient>
 						</Pressable>
+                        {isNoImage && (
+                            <Text className='text-white opacity-40 mt-3' numberOfLines={1}>{value}</Text>
+                        )}
+                        {error && <Text className='text-red mt-1'>{error.message}</Text>}
 					</View>
 				</View>
 				{!isNoImage && (
