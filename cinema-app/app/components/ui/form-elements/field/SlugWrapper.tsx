@@ -1,8 +1,15 @@
 import {FC, PropsWithChildren} from 'react'
-import {View, Text} from 'react-native'
+import { View, Text, Pressable } from 'react-native';
 
 const SlugWrapper: FC<PropsWithChildren<{generate: () => void}>> = ({children}) => {
-  return <View>{children}</View>
+  return <View>
+    {children}
+        <Pressable>
+            <Text>
+                generate
+            </Text>
+        </Pressable>
+    </View>
   
 }
 export default SlugWrapper
