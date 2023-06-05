@@ -1,11 +1,24 @@
-import {FC} from 'react'
-import {View, Text} from 'react-native'
+import { FC } from 'react'
+import { Text, View } from 'react-native'
 
-const UploadField: FC = () => {
-  return (
-      <View>
-         <Text>UploadField</Text>
-      </View>
-  )
+import { IUploadField } from './upload-field.interface'
+import { useUploadMedia } from './useUploadMedia'
+
+const UploadField: FC<IUploadField> = ({
+	onChange,
+	placeholder,
+	error,
+	folder,
+	isNoImage,
+	style,
+	value,
+	gradient = ['#1db052', '#178d42']
+}) => {
+    const {isLoading, uploadFile} = useUploadMedia(onChange, folder)
+	return (
+		<View>
+			<Text>UploadField</Text>
+		</View>
+	)
 }
 export default UploadField
