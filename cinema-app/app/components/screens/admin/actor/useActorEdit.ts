@@ -1,7 +1,7 @@
 import { IActorEditInput } from "@/shared/types/actor.interface";
 import { SubmitHandler, UseFormSetValue } from "react-hook-form";
 import { useTypedRoute } from "@/hooks/useTypedRoute";
-import { useMutation, useQuery, QueryClient, useQueryClient } from '@tanstack/react-query';
+import { useMutation, useQuery,  useQueryClient } from '@tanstack/react-query';
 import { ActorService } from "@/services/actor.service";
 import { Toast } from "react-native-toast-message/lib/src/Toast";
 import { getKeys } from "@/utils/getKeys";
