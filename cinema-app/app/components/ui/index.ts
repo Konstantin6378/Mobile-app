@@ -1,3 +1,5 @@
+import SlugWrapper from '@/components/ui/form-elements/field/SlugWrapper';
+import TextEditor from '@/components/ui/form-elements/text-editor/TextEditor';
 export { default as Loader } from './Loader'
 export { default as Button } from './button/Button'
 export { default as BlurButton } from './blur-button/BlurButton'
@@ -10,6 +12,8 @@ export { default as Layout } from './layout/Layout'
 export { default as BottomMenu } from './layout/bottom-menu/BottomMenu'
 
 export { default as DismissKeyboard } from './form-elements/field/DismissKeyboard'
+export { default as SlugWrapper } from './form-elements/field/SlugWrapper'
+export { default as TextEditor } from './form-elements/text-editor/TextEditor'
 export { default as Field } from './form-elements/field/Field'
 
 export { default as Rating } from './movie/movie-item/Rating'

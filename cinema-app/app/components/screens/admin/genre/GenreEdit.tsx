@@ -5,7 +5,7 @@ import { ScrollView, View } from 'react-native'
 import { useGenreEdit } from '@/components/screens/admin/genre/useGenreEdit'
 import { AdminNavigation, Button, Field, Layout, Loader } from '@/components/ui'
 import SlugWrapper from '@/components/ui/form-elements/field/SlugWrapper'
-import TextEditor from '@/components/ui/form-elements/text-edtor/TextEditor'
+import TextEditor from '@/components/ui/form-elements/text-editor/TextEditor'
 
 import { IGenreEditInput } from '@/shared/types/genre.interface'
 
