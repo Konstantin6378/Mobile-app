@@ -1,7 +1,8 @@
 import { useMutation } from "@tanstack/react-query";
 import { TypeUploadMedia } from "./upload-field.interface";
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import { MediaService } from "@/services/media.service";
+import { MediaTypeOptions, launchImageLibraryAsync } from "expo-image-picker";
 
 
 export const useUploadMedia:TypeUploadMedia = (onChange, folder)  => {
@@ -14,5 +15,16 @@ export const useUploadMedia:TypeUploadMedia = (onChange, folder)  => {
         }
     })
 
-    
+    const uploadFile = useCallback(async () => {
+        setIsLoading(true)
+        const result = await launchImageLibraryAsync({
+            mediaTypes: MediaTypeOptions.All,
+            allowsEditing: false,
+            quality: 1
+        })
+        if(result.canceled){
+            setIsLoading(false)
+            return
+        }
+    }, [mutateAsync])
 }
