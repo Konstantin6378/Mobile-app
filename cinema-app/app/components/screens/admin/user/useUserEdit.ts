@@ -17,7 +17,8 @@ export const useUserEdit = (setValue: UseFormSetValue<IUserEditInput>) => {
         enabled: !!userId
     })
 
-    const {invalidateQueries} = useQueryClient()
+    const queryClient = useQueryClient()
+    
 
     const {mutateAsync} = useMutation(['update user'], (data:IUserEditInput) => UserService.update(userId, data), 
     {
@@ -28,7 +29,7 @@ export const useUserEdit = (setValue: UseFormSetValue<IUserEditInput>) => {
                 text2: 'update was successful'
             })
 
-            await invalidateQueries(['search users'])
+            await queryClient.invalidateQueries(['search users'])
         }
     })
     const onSubmit: SubmitHandler<IUserEditInput> = async data => {
