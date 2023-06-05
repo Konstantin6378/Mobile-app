@@ -12,7 +12,7 @@ export interface IUploadField  {
     gradient?: [string, string];
 }
 
-type TypeUploadMedia = (onChange:(...value: any[]) => void, folder?: string) => {
+export type TypeUploadMedia = (onChange:(...value: any[]) => void, folder?: string) => {
     uploadFile: () => Promise<void>
     isLoading: boolean
 }
