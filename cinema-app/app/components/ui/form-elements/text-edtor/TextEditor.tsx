@@ -5,7 +5,7 @@ import { ITextEditor } from './text-editor.interface'
 const TextEditor: FC<ITextEditor> = ({
     value,
     onChange,
-    placeholder,
+    placeholder = 'Write your cool content here 😊',
     error
 }) => {
   return (
