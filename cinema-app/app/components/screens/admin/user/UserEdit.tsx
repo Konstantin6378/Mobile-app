@@ -40,9 +40,9 @@ const UserEdit: FC = () => {
 									<Checkbox
 										value={value}
 										onValueChange={onChange}
-										style={{ alignSelf: 'center', marginRight: 10 }}
+										style={{ alignSelf: 'center' }}
 									/>
-									<Text className='underline text-white text-base'>
+									<Text className='underline text-white text-base ml-2.5'>
 										Admin rights
 									</Text>
 								</Pressable>
