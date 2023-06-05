@@ -11,3 +11,8 @@ export interface IUploadField  {
     isNoImage?: boolean;
     gradient?: [string, string];
 }
+
+type TypeUploadMedia = (onChange:(...value: any[]) => void, folder?: string) => {
+    uploadFile: () => Promise<void>
+    isLoading: boolean
+}
