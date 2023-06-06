@@ -11,14 +11,15 @@ import {
 	Loader,
 	SlugWrapper
 } from '@/components/ui'
+import Dropdown from '@/components/ui/form-elements/dropdown/Dropdown'
+import UploadField from '@/components/ui/form-elements/upload-field/UploadField'
 
 import { IMovieEditInput } from '@/shared/types/movie.interface'
 
 import { generateSlug } from '@/utils/generateSlug'
-import UploadField from '@/components/ui/form-elements/upload-field/UploadField'
-import { useAdminGenres } from './useAdminGenres'
+
 import { useAdminActors } from './useAdminActors'
-import Dropdown from '@/components/ui/form-elements/dropdown/Dropdown'
+import { useAdminGenres } from './useAdminGenres'
 
 const MovieEdit: FC = () => {
 	const { control, setValue, handleSubmit, getValues } =
@@ -28,8 +29,8 @@ const MovieEdit: FC = () => {
 
 	const { isLoading, onSubmit } = useMovieEdit(setValue)
 
-	const {isLoading: isGenresLoading, data: genres} = useAdminGenres()
-	const {isLoading: isActorsLoading, data: actors} = useAdminActors()
+	const { isLoading: isGenresLoading, data: genres } = useAdminGenres()
+	const { isLoading: isActorsLoading, data: actors } = useAdminActors()
 
 	return (
 		<Layout isHasPadding>
@@ -96,8 +97,8 @@ const MovieEdit: FC = () => {
 						<Controller
 							control={control}
 							name='genres'
-							render={({field, fieldState: {error}}) => (
-								<Dropdown 
+							render={({ field, fieldState: { error } }) => (
+								<Dropdown
 									field={field}
 									options={genres}
 									isLoading={isGenresLoading}
@@ -115,14 +116,13 @@ const MovieEdit: FC = () => {
 						<Controller
 							control={control}
 							name='actors'
-							render={({field, fieldState: {error}}) => (
-								<Dropdown 
+							render={({ field, fieldState: { error } }) => (
+								<Dropdown
 									field={field}
 									options={actors}
 									isLoading={isActorsLoading}
 									isMulti
 									error={error}
-									
 								/>
 							)}
 							rules={{
@@ -131,47 +131,47 @@ const MovieEdit: FC = () => {
 						/>
 
 						<Controller
-								control={control}
-								name='poster'
-								defaultValue=''
-								render={({
-									field: { value, onChange },
-									fieldState: { error }
-								}) => (
-									<UploadField
-										onChange={onChange}
-										value={value}
-										error={error}
-										folder='movies'
-										placeholder='Poster'
-									/>
-								)}
-								rules={{
-									required: 'Poster is required'
-								}}
-							/>
-							<Controller
-								control={control}
-								name='videoUrl'
-								defaultValue=''
-								render={({
-									field: { value, onChange },
-									fieldState: { error }
-								}) => (
-									<UploadField
-										onChange={onChange}
-										value={value}
-										error={error}
-										folder='movies'
-										placeholder='Video'
-										isNoImage
-										gradient={['#4361a6', '#253584']}
-									/>
-								)}
-								rules={{
-									required: 'Video is required'
-								}}
-							/>
+							control={control}
+							name='poster'
+							defaultValue=''
+							render={({
+								field: { value, onChange },
+								fieldState: { error }
+							}) => (
+								<UploadField
+									onChange={onChange}
+									value={value}
+									error={error}
+									folder='movies'
+									placeholder='Poster'
+								/>
+							)}
+							rules={{
+								required: 'Poster is required'
+							}}
+						/>
+						<Controller
+							control={control}
+							name='videoUrl'
+							defaultValue=''
+							render={({
+								field: { value, onChange },
+								fieldState: { error }
+							}) => (
+								<UploadField
+									onChange={onChange}
+									value={value}
+									error={error}
+									folder='movies'
+									placeholder='Video'
+									isNoImage
+									gradient={['#4361a6', '#253584']}
+								/>
+							)}
+							rules={{
+								required: 'Video is required'
+							}}
+						/>
 						<Button onPress={handleSubmit(onSubmit)} icon='pen-tool'>
 							Update
 						</Button>
