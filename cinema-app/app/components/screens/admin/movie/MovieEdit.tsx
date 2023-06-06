@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { useForm } from 'react-hook-form'
+import { Controller, useForm } from 'react-hook-form'
 import { ScrollView, View } from 'react-native'
 
 import { useMovieEdit } from '@/components/screens/admin/movie/useMovieEdit'
@@ -15,6 +15,7 @@ import {
 import { IMovieEditInput } from '@/shared/types/movie.interface'
 
 import { generateSlug } from '@/utils/generateSlug'
+import UploadField from '@/components/ui/form-elements/upload-field/UploadField'
 
 const MovieEdit: FC = () => {
 	const { control, setValue, handleSubmit, getValues } =
@@ -85,7 +86,48 @@ const MovieEdit: FC = () => {
 								/>
 							</View>
 						</View>
-
+						<Controller
+								control={control}
+								name='poster'
+								defaultValue=''
+								render={({
+									field: { value, onChange },
+									fieldState: { error }
+								}) => (
+									<UploadField
+										onChange={onChange}
+										value={value}
+										error={error}
+										folder='movies'
+										placeholder='Poster'
+									/>
+								)}
+								rules={{
+									required: 'Poster is required'
+								}}
+							/>
+							<Controller
+								control={control}
+								name='videoUrl'
+								defaultValue=''
+								render={({
+									field: { value, onChange },
+									fieldState: { error }
+								}) => (
+									<UploadField
+										onChange={onChange}
+										value={value}
+										error={error}
+										folder='movies'
+										placeholder='Video'
+										isNoImage
+										gradient={['#4361a6', '#253584']}
+									/>
+								)}
+								rules={{
+									required: 'Photo is required'
+								}}
+							/>
 						<Button onPress={handleSubmit(onSubmit)} icon='pen-tool'>
 							Update
 						</Button>
