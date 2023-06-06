@@ -35,7 +35,7 @@ const MovieEdit: FC = () => {
 					<ScrollView showsVerticalScrollIndicator={false}>
 						<Field<IMovieEditInput>
 							control={control}
-							name='poster'
+							name='title'
 							placeholder='Enter name'
 							rules={{
 								required: 'Name is required'
@@ -125,7 +125,7 @@ const MovieEdit: FC = () => {
 									/>
 								)}
 								rules={{
-									required: 'Photo is required'
+									required: 'Video is required'
 								}}
 							/>
 						<Button onPress={handleSubmit(onSubmit)} icon='pen-tool'>
