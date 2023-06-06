@@ -122,9 +122,7 @@ const MovieEdit: FC = () => {
 									isLoading={isActorsLoading}
 									isMulti
 									error={error}
-									style={{
-										zIndex: 11
-									}}
+									
 								/>
 							)}
 							rules={{
