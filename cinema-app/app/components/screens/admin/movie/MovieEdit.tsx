@@ -35,11 +35,16 @@ const MovieEdit: FC = () => {
 	return (
 		<Layout isHasPadding>
 			<AdminNavigation title='Edit movie' isBackButton />
-			<ScrollView showsVerticalScrollIndicator={false}>
+			<View>
 				{isLoading ? (
 					<Loader />
 				) : (
-					<ScrollView showsVerticalScrollIndicator={false}>
+					<ScrollView
+						showsVerticalScrollIndicator={false}
+						contentContainerStyle={{
+							paddingBottom: 100
+						}}
+					>
 						<Field<IMovieEditInput>
 							control={control}
 							name='title'
@@ -177,7 +182,7 @@ const MovieEdit: FC = () => {
 						</Button>
 					</ScrollView>
 				)}
-			</ScrollView>
+			</View>
 		</Layout>
 	)
 }
