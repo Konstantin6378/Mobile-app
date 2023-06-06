@@ -18,6 +18,7 @@ import { generateSlug } from '@/utils/generateSlug'
 import UploadField from '@/components/ui/form-elements/upload-field/UploadField'
 import { useAdminGenres } from './useAdminGenres'
 import { useAdminActors } from './useAdminActors'
+import Dropdown from '@/components/ui/form-elements/dropdown/Dropdown'
 
 const MovieEdit: FC = () => {
 	const { control, setValue, handleSubmit, getValues } =
@@ -91,6 +92,27 @@ const MovieEdit: FC = () => {
 								/>
 							</View>
 						</View>
+
+						<Controller
+							control={control}
+							name='genres'
+							render={({field, fieldState: {error}}) => (
+								<Dropdown 
+									field={field}
+									options={genres || []}
+									isLoading={isGenresLoading}
+									isMulti
+									error={error}
+									style={{
+										zIndex: 11
+									}}
+								/>
+							)}
+							rules={{
+								required: 'Please select at least one genre!'
+							}}
+						/>
+
 						<Controller
 								control={control}
 								name='poster'
