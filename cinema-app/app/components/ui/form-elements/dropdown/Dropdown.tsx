@@ -1,4 +1,4 @@
-import { FC, useState } from 'react'
+import { FC, useState, useEffect } from 'react';
 import { Text, View } from 'react-native'
 
 import { IDropdown } from './dropdown.interface'
@@ -22,6 +22,10 @@ const Dropdown: FC<IDropdown> = ({
 				: items.find(option => option.value === field.value)?.value
 		} else return null
 	}
+
+    useEffect(() => {
+        if(!value) setValue(getValue())
+    }, [field.value])
 
 	return (
 		<View>
