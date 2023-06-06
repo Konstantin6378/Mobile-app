@@ -11,11 +11,14 @@ import { IUserEditInput } from '@/shared/types/user.interface'
 
 import AuthFields from '../../auth/AuthFields'
 import { getColor } from '@/config/colors.config'
+import UserProfile from './UserEditAvatar'
+import { useProfile } from '../../profile/useProfile';
 
 const UserEdit: FC = () => {
 	const { control, setValue, handleSubmit } = useForm<IUserEditInput>({
 		mode: 'onChange'
 	})
+
 
 	const { isLoading, onSubmit } = useUserEdit(setValue)
 
@@ -30,6 +33,7 @@ const UserEdit: FC = () => {
 						<AuthFields
 							control={control as unknown as Control<IAuthFormData>}
 						/>
+
 						<Controller
 							control={control}
 							name='isAdmin'
@@ -47,6 +51,7 @@ const UserEdit: FC = () => {
 										Admin rights
 									</Text>
 								</Pressable>
+								
 							)}
 						/>
 						<Button onPress={handleSubmit(onSubmit)} icon='pen-tool'>
