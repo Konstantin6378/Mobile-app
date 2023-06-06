@@ -3,7 +3,7 @@ import { ViewStyle } from "react-native";
 import { ItemType } from "react-native-dropdown-picker";
 
 export interface IDropdown  {
-    options: ItemType<any>
+    options: ItemType<any>[]
     isMulti?: boolean
     field: ControllerRenderProps<any, any>
     isLoading?: boolean
