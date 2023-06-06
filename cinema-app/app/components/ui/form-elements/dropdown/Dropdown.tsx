@@ -1,11 +1,20 @@
-import {FC} from 'react'
-import {View, Text} from 'react-native'
+import { FC } from 'react'
+import { Text, View } from 'react-native'
 
-const Dropdown: FC = () => {
-  return (
-      <View>
-         <Text>Dropdown</Text>
-      </View>
-  )
+import { IDropdown } from './dropdown.interface'
+
+const Dropdown: FC<IDropdown> = ({
+	isLoading,
+	isMulti,
+	field,
+	error,
+	options,
+	style
+}) => {
+	return (
+		<View>
+			<Text>Dropdown</Text>
+		</View>
+	)
 }
 export default Dropdown
