@@ -1,23 +1,37 @@
-import { AdminNavigation, Button, Field, Layout, Loader, SlugWrapper } from '@/components/ui'
-import { useMovieEdit } from '@/components/screens/admin/movie/useMovieEdit'
-import { IMovieEditInput } from '@/shared/types/movie.interface'
 import { FC } from 'react'
 import { useForm } from 'react-hook-form'
-import {  ScrollView, View } from 'react-native'
+import { ScrollView, View } from 'react-native'
+
+import { useMovieEdit } from '@/components/screens/admin/movie/useMovieEdit'
+import {
+	AdminNavigation,
+	Button,
+	Field,
+	Layout,
+	Loader,
+	SlugWrapper
+} from '@/components/ui'
+
+import { IMovieEditInput } from '@/shared/types/movie.interface'
+
 import { generateSlug } from '@/utils/generateSlug'
 
 const MovieEdit: FC = () => {
-	const {control, setValue, handleSubmit, getValues} = useForm<IMovieEditInput>({
-		mode: 'onChange'
-	})
+	const { control, setValue, handleSubmit, getValues } =
+		useForm<IMovieEditInput>({
+			mode: 'onChange'
+		})
 
-	const {isLoading, onSubmit} = useMovieEdit(setValue)
+	const { isLoading, onSubmit } = useMovieEdit(setValue)
 
 	return (
 		<Layout isHasPadding>
 			<AdminNavigation title='Edit movie' isBackButton />
 			<View>
-				{isLoading ? <Loader/> : <ScrollView showsVerticalScrollIndicator={false}>
+				{isLoading ? (
+					<Loader />
+				) : (
+					<ScrollView showsVerticalScrollIndicator={false}>
 						<Field<IMovieEditInput>
 							control={control}
 							name='poster'
@@ -40,10 +54,42 @@ const MovieEdit: FC = () => {
 								}}
 							/>
 						</SlugWrapper>
+						<Field<IMovieEditInput>
+							control={control}
+							name='parameters.country'
+							placeholder='Enter country'
+							rules={{
+								required: 'Country is required'
+							}}
+						/>
+						<View className='flex-row flex-wrap justify-between'>
+							<View style={{ width: '56%' }}>
+								<Field<IMovieEditInput>
+									control={control}
+									name='parameters.duration'
+									placeholder='Enter duration (min.)'
+									rules={{
+										required: 'Duration is required'
+									}}
+								/>
+							</View>
+							<View style={{ width: '40%' }}>
+								<Field<IMovieEditInput>
+									control={control}
+									name='parameters.year'
+									placeholder='Enter year '
+									rules={{
+										required: 'Year is required'
+									}}
+								/>
+							</View>
+						</View>
+
 						<Button onPress={handleSubmit(onSubmit)} icon='pen-tool'>
 							Update
 						</Button>
-					</ScrollView>}
+					</ScrollView>
+				)}
 			</View>
 		</Layout>
 	)
