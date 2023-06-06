@@ -16,20 +16,20 @@ const Dropdown: FC<IDropdown> = ({
 	style
 }) => {
 	const [isOpen, setIsOpen] = useState(false)
-	const [value, setValue] = useState<string[] | null>(null)
+	const [value, setValue] = useState<string[] | null>(field.value)
 	const [items, setItems] = useState(options)
 
-	const getValue = (): string[] | null => {
-		if (field.value) {
-			return isMulti
-				? items.filter(option => field.value.indexOf(option.value) >= 0)
-				: items.find(option => option.value === field.value)?.value
-		} else return null
-	}
+	// const getValue = (): string[] | null => {
+	// 	if (field.value) {
+	// 		return isMulti
+	// 			? items.filter(option => field.value.indexOf(option.value) >= 0)
+	// 			: items.find(option => option.value === field.value)?.value
+	// 	} else return null
+	// }
 
-    useEffect(() => {
-        if(!value) setValue(getValue())
-    }, [field.value])
+    // useEffect(() => {
+    //     if(!value) setValue(getValue())
+    // }, [field.value])
 
 	return (
 		<View className='z-10' style={style}>

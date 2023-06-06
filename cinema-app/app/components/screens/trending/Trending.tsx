@@ -9,12 +9,15 @@ const Trending: FC = () => {
 	if (isLoading) return <Loader />
 	return (
 		<Layout isHasPadding>
-			<Heading title={'Trending'} />
-			<MovieCatalog
-				title='Trending'
-				movies={movies}
-				description='Trending movies in excellent quality: legal, safe, without ads'
-			/>
+			{<Heading title={'Trending'} /> ? (
+				<MovieCatalog
+					title='Trending'
+					movies={movies}
+					description='Trending movies in excellent quality: legal, safe, without ads'
+				/>
+			) : (
+				<Loader />
+			)}
 		</Layout>
 	)
 }

@@ -35,7 +35,7 @@ const MovieEdit: FC = () => {
 	return (
 		<Layout isHasPadding>
 			<AdminNavigation title='Edit movie' isBackButton />
-			<View>
+			<ScrollView showsVerticalScrollIndicator={false}>
 				{isLoading ? (
 					<Loader />
 				) : (
@@ -177,7 +177,7 @@ const MovieEdit: FC = () => {
 						</Button>
 					</ScrollView>
 				)}
-			</View>
+			</ScrollView>
 		</Layout>
 	)
 }
