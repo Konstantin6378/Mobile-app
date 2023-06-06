@@ -16,6 +16,8 @@ import { IMovieEditInput } from '@/shared/types/movie.interface'
 
 import { generateSlug } from '@/utils/generateSlug'
 import UploadField from '@/components/ui/form-elements/upload-field/UploadField'
+import { useAdminGenres } from './useAdminGenres'
+import { useAdminActors } from './useAdminActors'
 
 const MovieEdit: FC = () => {
 	const { control, setValue, handleSubmit, getValues } =
@@ -24,6 +26,9 @@ const MovieEdit: FC = () => {
 		})
 
 	const { isLoading, onSubmit } = useMovieEdit(setValue)
+
+	const {isLoading: isGenresLoading, data: genres} = useAdminGenres()
+	const {isLoading: isActorsLoading, data: actors} = useAdminActors()
 
 	return (
 		<Layout isHasPadding>
