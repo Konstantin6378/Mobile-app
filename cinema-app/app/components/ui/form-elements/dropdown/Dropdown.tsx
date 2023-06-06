@@ -17,7 +17,11 @@ const Dropdown: FC<IDropdown> = ({
     const [items, setItems] = useState(options)
 
     const getValue = ():string[] | null => {
-        if(field.value)
+        if(field.value){
+            return isMulti ? items.filter(option => field.value.indexOf(option))
+        }
+            else 
+                return null
     }
 
 
