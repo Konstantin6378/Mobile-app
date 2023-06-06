@@ -28,8 +28,9 @@ const Dropdown: FC<IDropdown> = ({
     }, [field.value])
 
 	return (
-		<View>
+		<View className='z-10' style={style}>
 			<Text>Dropdown</Text>
+            {error && <Text className='text-red'>{error.message}</Text>}
 		</View>
 	)
 }
