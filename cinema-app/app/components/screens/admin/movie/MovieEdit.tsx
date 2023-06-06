@@ -99,7 +99,7 @@ const MovieEdit: FC = () => {
 							render={({field, fieldState: {error}}) => (
 								<Dropdown 
 									field={field}
-									options={genres || []}
+									options={genres}
 									isLoading={isGenresLoading}
 									isMulti
 									error={error}
@@ -118,7 +118,7 @@ const MovieEdit: FC = () => {
 							render={({field, fieldState: {error}}) => (
 								<Dropdown 
 									field={field}
-									options={actors || []}
+									options={actors}
 									isLoading={isActorsLoading}
 									isMulti
 									error={error}
