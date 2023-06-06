@@ -12,7 +12,7 @@ const Dropdown: FC<IDropdown> = ({
 	isMulti,
 	field,
 	error,
-	options,
+	options = [],
 	style
 }) => {
 	const [isOpen, setIsOpen] = useState(false)

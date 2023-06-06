@@ -112,6 +112,25 @@ const MovieEdit: FC = () => {
 								required: 'Please select at least one genre!'
 							}}
 						/>
+						<Controller
+							control={control}
+							name='actors'
+							render={({field, fieldState: {error}}) => (
+								<Dropdown 
+									field={field}
+									options={actors || []}
+									isLoading={isActorsLoading}
+									isMulti
+									error={error}
+									style={{
+										zIndex: 11
+									}}
+								/>
+							)}
+							rules={{
+								required: 'Please select at least one actor!'
+							}}
+						/>
 
 						<Controller
 								control={control}
