@@ -81,6 +81,7 @@ const MovieEdit: FC = () => {
 									rules={{
 										required: 'Year is required'
 									}}
+									keyboardType='number-pad'
 								/>
 							</View>
 						</View>
