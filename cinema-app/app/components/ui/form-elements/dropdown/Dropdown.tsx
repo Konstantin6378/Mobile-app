@@ -1,7 +1,8 @@
 import { FC, useState, useEffect } from 'react';
-import { Text, View } from 'react-native'
+import { Text, View, ActivityIndicator } from 'react-native';
 
 import { IDropdown } from './dropdown.interface'
+import DropDownPicker from 'react-native-dropdown-picker';
 
 const Dropdown: FC<IDropdown> = ({
 	isLoading,
@@ -29,7 +30,37 @@ const Dropdown: FC<IDropdown> = ({
 
 	return (
 		<View className='z-10' style={style}>
-			<Text>Dropdown</Text>
+			<DropDownPicker 
+                open={isOpen}
+                setOpen={setIsOpen}
+                items={items}
+                setItems={setItems}
+                value={value}
+                setValue={setValue}
+                onChangeValue={(value: any) => {
+                    if(value) field.onChange(value)
+                }}
+                multiple={isMulti}
+                loading={isLoading}
+                mode='BADGE'
+                activityIndicatorColor='#bf3335'
+                style={{
+                    backgroundColor: '#232323',
+                    borderColor: error ? 'red' : 'transparent',
+                    paddingHorizontal: 16,
+                    marginVertical: 6
+                }}
+                textStyle={{
+                    fontSize: 16
+                }}
+                placeholderStyle={{
+                    color: '#5a595d'
+                }}
+                dropDownContainerStyle={{
+                    backgroundColor: '#232323',
+                }}
+                showBadgeDot={false}
+            />
             {error && <Text className='text-red'>{error.message}</Text>}
 		</View>
 	)
