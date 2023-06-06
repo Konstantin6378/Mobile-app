@@ -1,4 +1,4 @@
-import { FC, useState } from 'react';
+import { FC, useState } from 'react'
 import { Text, View } from 'react-native'
 
 import { IDropdown } from './dropdown.interface'
@@ -11,21 +11,19 @@ const Dropdown: FC<IDropdown> = ({
 	options,
 	style
 }) => {
-
-    const [isOpen, setIsOpen] = useState(false)
+	const [isOpen, setIsOpen] = useState(false)
 	const [value, setValue] = useState<string[] | null>(null)
-    const [items, setItems] = useState(options)
+	const [items, setItems] = useState(options)
 
-    const getValue = ():string[] | null => {
-        if(field.value){
-            return isMulti ? items.filter(option => field.value.indexOf(option))
-        }
-            else 
-                return null
-    }
+	const getValue = (): string[] | null => {
+		if (field.value) {
+			return isMulti
+				? items.filter(option => field.value.indexOf(option.value) >= 0)
+				: items.find(option => option.value === field.value)?.value
+		} else return null
+	}
 
-
-    return (
+	return (
 		<View>
 			<Text>Dropdown</Text>
 		</View>
