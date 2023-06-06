@@ -1,8 +1,11 @@
 import { FC, useState, useEffect } from 'react';
-import { Text, View, ActivityIndicator } from 'react-native';
+import { Text, View } from 'react-native';
 
 import { IDropdown } from './dropdown.interface'
 import DropDownPicker from 'react-native-dropdown-picker';
+
+DropDownPicker.setTheme('DARK')
+DropDownPicker.setListMode('SCROLLVIEW')
 
 const Dropdown: FC<IDropdown> = ({
 	isLoading,
